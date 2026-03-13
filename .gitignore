@@ -1,0 +1,7 @@
+node_modules
+dist
+.DS_Store
+desktop-smoke.png
+mobile-smoke.png
+vite.log
+vite.err
