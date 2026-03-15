@@ -3,5 +3,7 @@ dist
 .DS_Store
 desktop-smoke.png
 mobile-smoke.png
+hero-check.png
+test-results/
 vite.log
 vite.err
