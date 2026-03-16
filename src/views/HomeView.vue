@@ -14,16 +14,17 @@ const { pageRoot } = usePageIntro()
     <div class="mx-auto flex max-w-[1200px] flex-col gap-20">
       <div class="flex flex-col items-center gap-8 py-4 text-center md:py-8">
         <div class="space-y-1" data-reveal>
-          <div class="mx-auto max-w-[980px]">
-            <h1
+          <h1
+            class="hero-title mx-auto max-w-[980px] font-['Space_Grotesk'] text-[clamp(3.1rem,7vw,4.8rem)] leading-[.94] tracking-[-.06em]"
+          >
+            <span
               v-for="(line, index) in heroLines"
               :key="line"
-              class="page-title-wrap font-['Space_Grotesk'] text-[clamp(3.1rem,7vw,4.8rem)] leading-[.94] tracking-[-.06em]"
-              :class="index === 1 ? 'font-medium' : 'font-bold'"
+              class="page-title-wrap hero-title-line-wrap block"
             >
-              <span class="page-title-line">{{ line }}</span>
-            </h1>
-          </div>
+              <span class="page-title-line block text-center" :class="index === 1 ? 'font-medium' : 'font-bold'">{{ line }}</span>
+            </span>
+          </h1>
         </div>
 
         <p class="max-w-[620px] text-[1.15rem] leading-8 text-[var(--muted)]" data-reveal>
@@ -61,7 +62,7 @@ const { pageRoot } = usePageIntro()
       <section class="glass-panel rounded-[32px] p-6 md:p-9" data-card>
         <div class="space-y-4" data-reveal>
           <h2 class="max-w-[700px] font-['Space_Grotesk'] text-[clamp(2rem,4.4vw,2.5rem)] font-medium leading-[1.05] tracking-[-.05em]">
-            Una muestra breve del tipo de proyectos en los que me gusta trabajar.
+            Una breve selección del tipo de proyectos en los que me gusta trabajar.
           </h2>
         </div>
         <div class="mt-8 grid gap-6 lg:grid-cols-3">
@@ -111,3 +112,13 @@ const { pageRoot } = usePageIntro()
     </div>
   </section>
 </template>
+
+<style scoped>
+.hero-title {
+  width: fit-content;
+}
+
+.hero-title-line-wrap {
+  width: 100%;
+}
+</style>

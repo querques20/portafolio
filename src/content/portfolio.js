@@ -1,4 +1,4 @@
-export const email = 'hello@facundo.dev'
+export const email = 'facundo.albuquerque@gmail.com'
 
 export const navItems = [
   { id: 'inicio', name: 'home', path: '/', label: 'Inicio', order: 0 },
@@ -7,7 +7,7 @@ export const navItems = [
   { id: 'contacto', name: 'contact', path: '/contacto', label: 'Contacto', order: 3 },
 ]
 
-export const heroLines = ['Diseño y desarrollo', 'digital', 'con criterio visual']
+export const heroLines = ['Diseño y desarrollo', 'digital', 'para sitios y marcas']
 export const heroTags = ['Producto', 'Dirección visual', 'Desarrollo web']
 
 export const previewProjects = [

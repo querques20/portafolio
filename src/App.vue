@@ -14,18 +14,14 @@ const isDesktopNavVisible = ref(false)
 const isDesktopNavHovered = ref(false)
 const isRouteTransitioning = ref(false)
 
-const desktopNavTopOffset = 24
-const desktopNavScrollDetectionThreshold = 2
-const desktopNavHideThreshold = 12
-const desktopNavWheelIntentThreshold = 3
-const desktopNavRevealHoldMs = 420
+const desktopNavRevealZone = 92
+const desktopNavHideZone = 164
+const desktopNavHideDelay = 180
 const routeOrderByName = Object.fromEntries(navItems.map((item) => [item.name, item.order]))
 
 let skipNextRouteEnterAnimation = false
-let lastScrollY = 0
 let ambientContext
-let scrollFrameId
-let desktopNavRevealLockUntil = 0
+let desktopNavHideTimer
 
 const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
 const isDesktopNavEnabled = () => window.innerWidth >= 768 && window.matchMedia('(pointer: fine)').matches
@@ -39,109 +35,71 @@ const tweenTo = (target, vars) =>
     })
   })
 
+const clearDesktopNavHideTimer = () => {
+  if (!desktopNavHideTimer) return
+
+  window.clearTimeout(desktopNavHideTimer)
+  desktopNavHideTimer = undefined
+}
+
 const showDesktopNav = () => {
+  clearDesktopNavHideTimer()
   isDesktopNavVisible.value = true
 }
 
-const holdDesktopNavVisible = () => {
-  desktopNavRevealLockUntil = performance.now() + desktopNavRevealHoldMs
-  isDesktopNavVisible.value = true
-}
-
-const applyDesktopNavVisibilityFromScroll = (currentScrollY) => {
-  if (!isDesktopNavEnabled()) {
-    isDesktopNavVisible.value = true
-    return
-  }
-
-  if (isRouteTransitioning.value || isDesktopNavHovered.value || currentScrollY <= desktopNavTopOffset) {
-    isDesktopNavVisible.value = true
-    return
-  }
-
-  if (performance.now() < desktopNavRevealLockUntil) {
-    isDesktopNavVisible.value = true
-  }
+const hideDesktopNav = () => {
+  clearDesktopNavHideTimer()
+  isDesktopNavVisible.value = false
 }
 
 const syncDesktopNavVisibility = () => {
-  const currentScrollY = Math.max(window.scrollY || 0, 0)
-
-  lastScrollY = currentScrollY
-
-  applyDesktopNavVisibilityFromScroll(currentScrollY)
-}
-
-const updateDesktopNavFromScroll = () => {
   if (!isDesktopNavEnabled()) {
-    syncDesktopNavVisibility()
+    showDesktopNav()
     return
   }
-
-  const currentScrollY = Math.max(window.scrollY || 0, 0)
-
-  if (currentScrollY <= desktopNavTopOffset) {
-    lastScrollY = currentScrollY
-    desktopNavRevealLockUntil = 0
-    isDesktopNavVisible.value = true
-    return
-  }
-
-  const delta = currentScrollY - lastScrollY
-  lastScrollY = currentScrollY
-
-  if (Math.abs(delta) < desktopNavScrollDetectionThreshold) return
 
   if (isRouteTransitioning.value || isDesktopNavHovered.value) {
-    isDesktopNavVisible.value = true
+    showDesktopNav()
     return
   }
 
-  if (delta < 0) {
-    holdDesktopNavVisible()
-    return
-  }
-
-  if (performance.now() < desktopNavRevealLockUntil) return
-
-  if (delta >= desktopNavHideThreshold) {
-    isDesktopNavVisible.value = false
-  }
+  hideDesktopNav()
 }
 
-const handleWindowScroll = () => {
-  if (scrollFrameId) return
+const scheduleDesktopNavHide = () => {
+  if (!isDesktopNavEnabled() || isDesktopNavHovered.value || isRouteTransitioning.value) return
 
-  scrollFrameId = window.requestAnimationFrame(() => {
-    scrollFrameId = undefined
-    updateDesktopNavFromScroll()
-  })
+  clearDesktopNavHideTimer()
+  desktopNavHideTimer = window.setTimeout(() => {
+    if (!isDesktopNavHovered.value && !isRouteTransitioning.value) {
+      isDesktopNavVisible.value = false
+    }
+  }, desktopNavHideDelay)
 }
 
-const handleWindowWheel = (event) => {
+const handleWindowMouseMove = (event) => {
   if (!isDesktopNavEnabled()) return
 
-  const currentScrollY = Math.max(window.scrollY || 0, 0)
-
-  if (currentScrollY <= desktopNavTopOffset || isRouteTransitioning.value || isDesktopNavHovered.value) {
-    isDesktopNavVisible.value = true
+  if (event.clientY <= desktopNavRevealZone) {
+    showDesktopNav()
     return
   }
 
-  if (event.deltaY <= -desktopNavWheelIntentThreshold) {
-    holdDesktopNavVisible()
+  if (event.clientY > desktopNavHideZone && !isDesktopNavHovered.value) {
+    scheduleDesktopNavHide()
   }
 }
 
 const handleDesktopNavEnter = () => {
   if (!isDesktopNavEnabled()) return
+
   isDesktopNavHovered.value = true
   showDesktopNav()
 }
 
 const handleDesktopNavLeave = () => {
   isDesktopNavHovered.value = false
-  applyDesktopNavVisibilityFromScroll(Math.max(window.scrollY || 0, 0))
+  scheduleDesktopNavHide()
 }
 
 const handleDesktopNavFocusOut = (event) => {
@@ -232,8 +190,7 @@ watch(
 
 onMounted(() => {
   syncDesktopNavVisibility()
-  window.addEventListener('scroll', handleWindowScroll, { passive: true })
-  window.addEventListener('wheel', handleWindowWheel, { passive: true })
+  window.addEventListener('mousemove', handleWindowMouseMove, { passive: true })
   window.addEventListener('resize', syncDesktopNavVisibility, { passive: true })
 
   if (!ambientScene.value || prefersReducedMotion()) return
@@ -274,9 +231,8 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
-  if (scrollFrameId) window.cancelAnimationFrame(scrollFrameId)
-  window.removeEventListener('scroll', handleWindowScroll)
-  window.removeEventListener('wheel', handleWindowWheel)
+  clearDesktopNavHideTimer()
+  window.removeEventListener('mousemove', handleWindowMouseMove)
   window.removeEventListener('resize', syncDesktopNavVisibility)
   ambientContext?.revert()
 })
@@ -524,8 +480,8 @@ footer {
 @media (min-width: 768px) {
   .hero-nav-shell {
     transition:
-      transform .44s cubic-bezier(.22, 1, .36, 1),
-      opacity .28s ease;
+      transform .4s cubic-bezier(.22, 1, .36, 1),
+      opacity .24s ease;
   }
 
   .nav-shell-visible {

@@ -98,10 +98,13 @@ const openLink = (link) => {
         </form>
       </div>
 
-      <div class="grid gap-8 xl:grid-cols-[384px_minmax(0,1fr)]">
+      <div class="grid gap-8 xl:grid-cols-[420px_minmax(0,1fr)]">
         <article class="glass-panel rounded-[28px] p-8" data-card>
           <p class="font-['DM_Sans'] text-[11px] font-bold uppercase tracking-[.18em] text-[var(--accent)]">DIRECTO</p>
-          <a :href="`mailto:${email}`" class="mt-5 block font-['Space_Grotesk'] text-[1.8rem] font-medium leading-tight tracking-[-.04em] hover:text-[var(--accent)]">
+          <a
+            :href="`mailto:${email}`"
+            class="mt-5 block font-['Space_Grotesk'] text-[clamp(1.1rem,1.55vw,1.42rem)] font-medium leading-[1.1] tracking-[-.03em] [overflow-wrap:anywhere] hover:text-[var(--accent)]"
+          >
             {{ email }}
           </a>
           <p class="mt-5 whitespace-pre-line text-[1.05rem] leading-8 text-[var(--muted)]">
