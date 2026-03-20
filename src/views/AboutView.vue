@@ -22,8 +22,8 @@ const { pageRoot } = usePageIntro()
           <div class="glass-panel overflow-hidden rounded-[30px] p-4" data-card>
             <div class="overflow-hidden rounded-[22px]">
               <img
-                src="/portfolio/portrait-facundo.png"
-                alt="Retrato editorial de Facundo"
+                src="/portfolio/facundo-workspace.jpeg"
+                alt="Facundo trabajando en su setup"
                 loading="eager"
                 fetchpriority="high"
                 decoding="async"
