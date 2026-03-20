@@ -38,15 +38,15 @@ const openLink = (link) => {
             <span class="page-title-wrap"><span class="page-title-line">Contacto</span></span>
           </h1>
           <div class="h-[3px] w-[72px] rounded-full bg-[var(--earth)]"></div>
-          <p class="max-w-[240px] text-base font-medium leading-7 text-[var(--muted)]">Disponible para colaboraciones puntuales en diseño y desarrollo.</p>
+          <p class="max-w-[240px] text-base font-medium leading-7 text-[var(--muted)]">Disponible para primeros proyectos, colaboraciones y trabajos web donde pueda aportar de verdad.</p>
         </div>
 
         <div class="space-y-5" data-reveal>
           <h2 class="max-w-[740px] font-['Space_Grotesk'] text-[clamp(2.1rem,4.8vw,3rem)] font-medium leading-[1.02] tracking-[-.05em]">
-            <span class="page-title-wrap"><span class="page-title-line">Si tu marca o producto necesita claridad visual y buena ejecución, podemos hablar.</span></span>
+            <span class="page-title-wrap"><span class="page-title-line">Si necesitás a alguien comprometido para sumarse a un sitio o desarrollo web, me interesa hablar.</span></span>
           </h2>
           <p class="max-w-[660px] text-[1.12rem] leading-8 text-[var(--muted)]">
-            Me interesan proyectos donde la forma, la función y la ejecución tengan el mismo peso.
+            Estoy buscando mis primeras oportunidades profesionales y quiero involucrarme en proyectos donde pueda responder, aprender y aportar desde el primer día.
           </p>
         </div>
       </div>
@@ -54,7 +54,7 @@ const openLink = (link) => {
       <div class="grid gap-8 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-24">
         <aside class="glass-card rounded-[24px] p-5" data-card>
           <p class="font-['DM_Sans'] text-[12px] font-bold uppercase tracking-[.24em] text-[var(--accent)]">CONSULTA / CONTACTO</p>
-          <p class="mt-5 max-w-[228px] leading-7 text-[var(--muted)]">Compartí el contexto, el objetivo y el momento del proyecto. Con eso ya se puede empezar.</p>
+          <p class="mt-5 max-w-[228px] leading-7 text-[var(--muted)]">Si tenés una idea clara o una necesidad puntual, contame el contexto. Estoy disponible para primeros trabajos freelance y colaboraciones.</p>
         </aside>
 
         <form class="glass-panel rounded-[30px] p-7" data-card @submit.prevent="submitInquiry">
@@ -110,7 +110,7 @@ const openLink = (link) => {
           <p class="mt-5 whitespace-pre-line text-[1.05rem] leading-8 text-[var(--muted)]">
             Buenos Aires / Remoto
             ES + EN
-            Proyectos selectos
+            Primeros proyectos y colaboraciones
           </p>
         </article>
 
@@ -145,13 +145,13 @@ const openLink = (link) => {
       <div class="grid gap-8 border-t border-[rgba(207,199,187,.95)] pt-8 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-24">
         <div class="space-y-3" data-reveal>
           <p class="font-['DM_Sans'] text-[12px] font-bold uppercase tracking-[.24em] text-[var(--accent)]">CIERRE / DISPONIBILIDAD</p>
-          <p class="max-w-[236px] leading-7 text-[var(--muted)]">Trabajo con pocos proyectos a la vez para cuidar el criterio y la ejecución.</p>
+          <p class="max-w-[236px] leading-7 text-[var(--muted)]">Hoy estoy abierto a primeras experiencias profesionales y proyectos freelance bien planteados.</p>
         </div>
         <div class="space-y-3" data-reveal>
           <h3 class="max-w-[680px] font-['Space_Grotesk'] text-[1.95rem] font-medium leading-[1.06] tracking-[-.04em]">
-            Si hay una idea clara y un proyecto serio, me interesa conversarlo.
+            Si hay una oportunidad seria para trabajar y crecer, estoy listo para comprometerme de verdad.
           </h3>
-          <p class="text-base font-medium text-[var(--accent)]">Diseño, desarrollo y dirección visual.</p>
+          <p class="text-base font-medium text-[var(--accent)]">Primeros proyectos, trabajo serio y mejora constante.</p>
         </div>
       </div>
     </div>

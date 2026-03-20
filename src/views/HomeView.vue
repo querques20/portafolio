@@ -1,5 +1,5 @@
 <script setup>
-import { inject } from 'vue'
+import { computed, inject } from 'vue'
 import { useRouter } from 'vue-router'
 import { heroLines, heroTags, pillars, previewProjects } from '../content/portfolio'
 import { usePageIntro } from '../composables/usePageIntro'
@@ -7,28 +7,50 @@ import { usePageIntro } from '../composables/usePageIntro'
 const router = useRouter()
 const navigateToRoute = inject('navigateToRoute', (name) => router.push({ name }))
 const { pageRoot } = usePageIntro()
+
+const heroWordLines = computed(() =>
+  heroLines.map((line, lineIndex) =>
+    line.split(' ').map((word, wordIndex) => ({
+      key: `${lineIndex}-${word}-${wordIndex}`,
+      label: word,
+      direction: (lineIndex + wordIndex) % 2 === 0 ? 'left' : 'right',
+    }))
+  )
+)
 </script>
 
 <template>
   <section ref="pageRoot" class="route-page px-4 pb-20 pt-4 md:pb-22 md:pt-6">
     <div class="mx-auto flex max-w-[1200px] flex-col gap-20">
       <div class="flex flex-col items-center gap-8 py-4 text-center md:py-8">
-        <div class="space-y-1" data-reveal>
+        <div class="space-y-1">
           <h1
             class="hero-title mx-auto max-w-[980px] font-['Space_Grotesk'] text-[clamp(3.1rem,7vw,4.8rem)] leading-[.94] tracking-[-.06em]"
           >
             <span
-              v-for="(line, index) in heroLines"
-              :key="line"
+              v-for="(lineWords, index) in heroWordLines"
+              :key="heroLines[index]"
               class="page-title-wrap hero-title-line-wrap block"
             >
-              <span class="page-title-line block text-center" :class="index === 1 ? 'font-medium' : 'font-bold'">{{ line }}</span>
+              <span class="page-title-line block text-center" :class="index === 1 ? 'font-medium' : 'font-bold'" data-hero-line>
+                <span class="hero-title-word-row">
+                  <span
+                    v-for="word in lineWords"
+                    :key="word.key"
+                    class="hero-word"
+                    :data-hero-word-direction="word.direction"
+                    data-hero-word
+                  >
+                    {{ word.label }}
+                  </span>
+                </span>
+              </span>
             </span>
           </h1>
         </div>
 
         <p class="max-w-[620px] text-[1.15rem] leading-8 text-[var(--muted)]" data-reveal>
-          Trabajo en proyectos donde diseño y desarrollo tienen que hablar el mismo idioma.
+          Estoy terminando una formación intensiva Full Stack y buscando mis primeras oportunidades para aportar compromiso real en proyectos web.
         </p>
 
         <div class="flex flex-wrap items-center justify-center gap-3" data-reveal>
@@ -64,6 +86,11 @@ const { pageRoot } = usePageIntro()
           <h2 class="max-w-[700px] font-['Space_Grotesk'] text-[clamp(2rem,4.4vw,2.5rem)] font-medium leading-[1.05] tracking-[-.05em]">
             Una breve selección del tipo de proyectos en los que me gusta trabajar.
           </h2>
+          <div class="section-divider" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
         <div class="mt-8 grid gap-6 lg:grid-cols-3">
           <article
@@ -87,19 +114,19 @@ const { pageRoot } = usePageIntro()
       <section class="glass-panel rounded-[32px] p-6 md:p-9" data-card>
         <div class="grid gap-8 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-24">
           <div class="space-y-4" data-reveal>
-            <p class="font-['DM_Sans'] text-[12px] font-bold uppercase tracking-[.24em] text-[var(--accent)]">PRESENCIA / DIGITAL</p>
+            <p class="font-['DM_Sans'] text-[12px] font-bold uppercase tracking-[.24em] text-[var(--accent)]">PRIMERA ETAPA / PERFIL</p>
             <p class="max-w-[236px] leading-7 text-[var(--muted)]">
-              Estar online no alcanza si la marca no se entiende o no transmite confianza.
+              Estoy construyendo experiencia real mientras estudio, practico y sigo mejorando proyecto a proyecto.
             </p>
           </div>
           <div class="space-y-4" data-reveal>
             <h2 class="max-w-[700px] font-['Space_Grotesk'] text-[clamp(2.1rem,4.8vw,2.7rem)] font-medium leading-[1.04] tracking-[-.05em]">
-              Una presencia digital clara ayuda a que una marca se vea mejor y se entienda rápido.
+              Busco proyectos donde pueda sumar trabajo serio, criterio y muchas ganas de crecer.
             </h2>
             <p class="max-w-[620px] text-lg leading-8 text-[var(--muted)]">
-              Trabajo en marcas y sitios donde forma, estructura y ejecución tienen que ir en la misma dirección.
+              Me interesa involucrarme, aprender rápido y responder bien desde el primer encargo, tanto en WordPress como en stacks modernos de front-end y back-end.
             </p>
-            <p class="text-base font-medium text-[var(--accent)]">Claridad visual, mensaje claro y buena ejecución.</p>
+            <p class="text-base font-medium text-[var(--accent)]">Primeras oportunidades, compromiso real y mejora constante.</p>
           </div>
         </div>
         <div class="mt-8 grid gap-6 md:grid-cols-3">
@@ -121,4 +148,41 @@ const { pageRoot } = usePageIntro()
 .hero-title-line-wrap {
   width: 100%;
 }
+
+.hero-title-word-row {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.14em;
+}
+
+.hero-word {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.section-divider {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.4rem;
+  max-width: 720px;
+}
+
+.section-divider span {
+  display: block;
+  height: 1px;
+  background: rgba(196, 186, 171, 0.9);
+}
+
+@media (max-width: 767px) {
+  .section-divider {
+    grid-template-columns: 1fr;
+    max-width: 180px;
+  }
+
+  .section-divider span:nth-child(n + 2) {
+    display: none;
+  }
+}
+
 </style>

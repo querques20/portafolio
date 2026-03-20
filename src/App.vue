@@ -11,17 +11,13 @@ const ambientScene = ref(null)
 const routeViewport = ref(null)
 const activeRouteName = computed(() => route.name ?? 'home')
 const isDesktopNavVisible = ref(false)
-const isDesktopNavHovered = ref(false)
+const hasHomeIntroCompleted = ref(false)
 const isRouteTransitioning = ref(false)
 
-const desktopNavRevealZone = 92
-const desktopNavHideZone = 164
-const desktopNavHideDelay = 180
 const routeOrderByName = Object.fromEntries(navItems.map((item) => [item.name, item.order]))
 
 let skipNextRouteEnterAnimation = false
 let ambientContext
-let desktopNavHideTimer
 
 const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
 const isDesktopNavEnabled = () => window.innerWidth >= 768 && window.matchMedia('(pointer: fine)').matches
@@ -35,30 +31,21 @@ const tweenTo = (target, vars) =>
     })
   })
 
-const clearDesktopNavHideTimer = () => {
-  if (!desktopNavHideTimer) return
-
-  window.clearTimeout(desktopNavHideTimer)
-  desktopNavHideTimer = undefined
-}
-
 const showDesktopNav = () => {
-  clearDesktopNavHideTimer()
   isDesktopNavVisible.value = true
 }
 
 const hideDesktopNav = () => {
-  clearDesktopNavHideTimer()
   isDesktopNavVisible.value = false
 }
 
 const syncDesktopNavVisibility = () => {
-  if (!isDesktopNavEnabled()) {
+  if (!isDesktopNavEnabled() || route.name !== 'home' || prefersReducedMotion() || hasHomeIntroCompleted.value) {
     showDesktopNav()
     return
   }
 
-  if (isRouteTransitioning.value || isDesktopNavHovered.value) {
+  if (isRouteTransitioning.value) {
     showDesktopNav()
     return
   }
@@ -66,48 +53,9 @@ const syncDesktopNavVisibility = () => {
   hideDesktopNav()
 }
 
-const scheduleDesktopNavHide = () => {
-  if (!isDesktopNavEnabled() || isDesktopNavHovered.value || isRouteTransitioning.value) return
-
-  clearDesktopNavHideTimer()
-  desktopNavHideTimer = window.setTimeout(() => {
-    if (!isDesktopNavHovered.value && !isRouteTransitioning.value) {
-      isDesktopNavVisible.value = false
-    }
-  }, desktopNavHideDelay)
-}
-
-const handleWindowMouseMove = (event) => {
-  if (!isDesktopNavEnabled()) return
-
-  if (event.clientY <= desktopNavRevealZone) {
-    showDesktopNav()
-    return
-  }
-
-  if (event.clientY > desktopNavHideZone && !isDesktopNavHovered.value) {
-    scheduleDesktopNavHide()
-  }
-}
-
-const handleDesktopNavEnter = () => {
-  if (!isDesktopNavEnabled()) return
-
-  isDesktopNavHovered.value = true
+const handlePageIntroComplete = () => {
+  hasHomeIntroCompleted.value = true
   showDesktopNav()
-}
-
-const handleDesktopNavLeave = () => {
-  isDesktopNavHovered.value = false
-  scheduleDesktopNavHide()
-}
-
-const handleDesktopNavFocusOut = (event) => {
-  const nextTarget = event.relatedTarget
-
-  if (nextTarget instanceof HTMLElement && event.currentTarget instanceof HTMLElement && event.currentTarget.contains(nextTarget)) return
-
-  handleDesktopNavLeave()
 }
 
 const getRouteDirection = (nextName, currentName) => {
@@ -177,6 +125,12 @@ provide('navigateToRoute', navigateToRoute)
 watch(
   () => route.name,
   async (nextName, previousName) => {
+    if (nextName !== 'home') {
+      showDesktopNav()
+    } else if (!previousName) {
+      syncDesktopNavVisibility()
+    }
+
     if (!previousName || skipNextRouteEnterAnimation) {
       skipNextRouteEnterAnimation = false
       return
@@ -190,7 +144,7 @@ watch(
 
 onMounted(() => {
   syncDesktopNavVisibility()
-  window.addEventListener('mousemove', handleWindowMouseMove, { passive: true })
+  window.addEventListener('portfolio:intro-complete', handlePageIntroComplete)
   window.addEventListener('resize', syncDesktopNavVisibility, { passive: true })
 
   if (!ambientScene.value || prefersReducedMotion()) return
@@ -231,8 +185,7 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
-  clearDesktopNavHideTimer()
-  window.removeEventListener('mousemove', handleWindowMouseMove)
+  window.removeEventListener('portfolio:intro-complete', handlePageIntroComplete)
   window.removeEventListener('resize', syncDesktopNavVisibility)
   ambientContext?.revert()
 })
@@ -263,10 +216,6 @@ onBeforeUnmount(() => {
         <div
           class="hero-nav-shell"
           :class="isDesktopNavVisible ? 'nav-shell-visible' : 'nav-shell-hidden'"
-          @mouseenter="handleDesktopNavEnter"
-          @mouseleave="handleDesktopNavLeave"
-          @focusin="handleDesktopNavEnter"
-          @focusout="handleDesktopNavFocusOut"
         >
           <nav
             class="hero-nav pointer-events-auto flex items-center justify-between gap-4 rounded-full border-[rgba(207,199,187,.88)] bg-white px-4 py-3 backdrop-blur-xl shadow-[0_18px_40px_rgba(30,30,27,.08)]"
@@ -335,7 +284,7 @@ onBeforeUnmount(() => {
           <div class="space-y-3">
             <p class="font-['DM_Sans'] text-[13px] font-bold uppercase tracking-[.16em]">facundo.dev</p>
             <p class="max-w-[352px] leading-7 text-[var(--muted)]">
-              Diseñador y desarrollador enfocado en producto, identidad y experiencia digital.
+              Desarrollador full stack en formación, enfocado en convertir estudio, práctica y compromiso en experiencia real.
             </p>
           </div>
 
@@ -349,7 +298,7 @@ onBeforeUnmount(() => {
 
         <div class="flex flex-col gap-3 border-t border-[rgba(207,199,187,.82)] pt-6 text-sm text-[var(--muted)] md:flex-row md:items-center md:justify-between">
           <p>Portfolio / 2026</p>
-          <p>Diseño, desarrollo y dirección visual.</p>
+          <p>Primeros proyectos, aprendizaje constante y trabajo serio.</p>
           <p>{{ email }}</p>
         </div>
       </div>

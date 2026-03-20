@@ -8,7 +8,7 @@ export const navItems = [
 ]
 
 export const heroLines = ['Diseño y desarrollo', 'digital', 'para sitios y marcas']
-export const heroTags = ['Producto', 'Dirección visual', 'Desarrollo web']
+export const heroTags = ['Full Stack', 'Vue / React / Node', 'WordPress / Laravel']
 
 export const previewProjects = [
   {
@@ -35,24 +35,24 @@ export const previewProjects = [
 ]
 
 export const pillars = [
-  ['CLARIDAD', 'La información se entiende rápido y sin ruido.', 'var(--accent)'],
-  ['CONFIANZA', 'Una buena presencia digital transmite seriedad.', 'var(--earth)'],
-  ['CRITERIO', 'Lo visual ordena, diferencia y sostiene el mensaje.', 'var(--accent)'],
+  ['COMPROMISO', 'Me involucro de verdad y cuido cada entrega, incluso en esta primera etapa.', 'var(--accent)'],
+  ['APRENDIZAJE', 'Estoy creciendo fuerte y convierto esa etapa en mejora constante.', 'var(--earth)'],
+  ['RESPUESTA', 'Busco resolver con seriedad, comunicación clara y muchas ganas de sumar.', 'var(--accent)'],
 ]
 
 export const aboutCards = [
-  ['ENFOQUE', 'Diseño visual con base funcional.', 'var(--accent)'],
-  ['ESPECIALIDAD', 'Sitios, interfaces e identidad digital.', 'var(--earth)'],
-  ['MIRADA', 'Orden, detalle y coherencia visual.', 'var(--accent)'],
-  ['BASE', 'Práctica constante y trabajo sobre proyectos reales.', 'var(--earth)'],
+  ['MOMENTO', 'Buscando mis primeras experiencias en desarrollo mientras sostengo mi camino con PedidosYa.', 'var(--accent)'],
+  ['FORMACIÓN', 'Carrera intensiva Full Stack de 2 años en Escuela Da Vinci.', 'var(--earth)'],
+  ['STACK', 'WordPress, Vue, React, Node.js, Laravel y base real en MERN y LAMP.', 'var(--accent)'],
+  ['ACTITUD', 'Compromiso real, ganas de aprender y dedicación total en cada proyecto.', 'var(--earth)'],
 ]
 
-export const tools = ['MongoDB', 'React', 'Vue', 'PHP', 'Tailwind', 'GSAP', 'MySQL', 'JavaScript', 'CSS', 'HTML']
+export const tools = ['WordPress', 'Vue', 'React', 'Node.js', 'JavaScript', 'CSS', 'HTML', 'Laravel', 'MongoDB', 'Express', 'PHP', 'MySQL', 'Linux', 'Apache']
 
 export const steps = [
-  ['01 / ENTENDER', 'Contexto, objetivo y usuario antes de diseñar.', 'var(--accent)'],
-  ['02 / ORDENAR', 'Jerarquía, sistema visual y estructura.', 'var(--earth)'],
-  ['03 / RESOLVER', 'Interfaz, detalle y desarrollo final.', 'var(--accent)'],
+  ['01 / ESCUCHAR', 'Entender qué necesita el proyecto y qué espera quien lo encarga.', 'var(--accent)'],
+  ['02 / ORDENAR', 'Definir estructura, stack y prioridades antes de empezar.', 'var(--earth)'],
+  ['03 / CUMPLIR', 'Trabajar con compromiso, comunicación y mejora constante hasta entregar.', 'var(--accent)'],
 ]
 
 export const projectDetails = [
@@ -71,8 +71,8 @@ export const projectDetails = [
 ]
 
 export const contactLinks = [
-  { title: 'LinkedIn', body: 'Perfil profesional y recorrido', href: '', badge: 'Próximamente', type: 'external' },
-  { title: 'GitHub', body: 'Código, pruebas y proceso', href: '', badge: 'Próximamente', type: 'external' },
+  { title: 'LinkedIn', body: 'Recorrido actual y disponibilidad profesional', href: '', badge: 'Próximamente', type: 'external' },
+  { title: 'GitHub', body: 'Código, práctica constante y proceso de aprendizaje', href: '', badge: 'Próximamente', type: 'external' },
   { title: 'Inicio', body: 'Volver al comienzo del sitio', routeName: 'home', badge: 'Abrir', type: 'route' },
   { title: 'Respuesta', body: 'Contacto directo por mail', href: `mailto:${email}`, badge: 'Email', type: 'mailto' },
 ]
@@ -84,10 +84,10 @@ export const footerColumns = [
   },
   {
     label: 'ENFOQUE',
-    items: ['UX/UI', 'Front-end', 'Identidad digital', 'Animación'],
+    items: ['Full Stack', 'WordPress', 'Vue / React', 'MERN + LAMP'],
   },
   {
     label: 'CONTACTO',
-    items: [email, 'Buenos Aires, AR', 'Proyectos selectos'],
+    items: [email, 'Buenos Aires, AR', 'Disponible para primeros proyectos'],
   },
 ]

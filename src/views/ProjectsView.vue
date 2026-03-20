@@ -19,7 +19,7 @@ const { pageRoot } = usePageIntro()
 
         <div class="space-y-4" data-reveal>
           <h2 class="max-w-[740px] font-['Space_Grotesk'] text-[clamp(2.1rem,4.8vw,3.1rem)] font-medium leading-[1.02] tracking-[-.05em]">
-            <span class="page-title-wrap"><span class="page-title-line">Una muestra de cómo trabajo identidad, estructura y experiencia digital.</span></span>
+            <span class="page-title-wrap"><span class="page-title-line">Trabajos y conceptos con los que vengo construyendo práctica, criterio y experiencia.</span></span>
           </h2>
           <p class="text-base font-medium text-[var(--muted)]">Una selección entre e-commerce, producto digital y servicios.</p>
         </div>

@@ -11,10 +11,20 @@ export function usePageIntro() {
     if (!pageRoot.value || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     context = gsap.context(() => {
-      const titleLines = gsap.utils.toArray('.page-title-line')
+      const heroWords = gsap.utils.toArray('[data-hero-word]')
+      const titleLines = gsap.utils.toArray('.page-title-line').filter((item) => !item.hasAttribute('data-hero-line'))
       const leadItems = gsap.utils.toArray('[data-reveal]')
       const cards = gsap.utils.toArray('[data-card]')
       const visuals = gsap.utils.toArray('[data-visual]')
+
+      if (heroWords.length) {
+        gsap.set(heroWords, {
+          xPercent: (index, item) => (item.dataset.heroWordDirection === 'right' ? 128 : -128),
+          opacity: 0,
+          rotate: (index, item) => (item.dataset.heroWordDirection === 'right' ? 3 : -3),
+          transformOrigin: '50% 100%',
+        })
+      }
 
       if (titleLines.length) {
         gsap.set(titleLines, { yPercent: 112, rotate: 3, transformOrigin: '0% 100%' })
@@ -22,8 +32,18 @@ export function usePageIntro() {
 
       const timeline = gsap.timeline({ defaults: { ease: 'power3.out' } })
 
+      if (heroWords.length) {
+        timeline.to(heroWords, {
+          xPercent: 0,
+          opacity: 1,
+          rotate: 0,
+          duration: 0.92,
+          stagger: 0.07,
+        })
+      }
+
       if (titleLines.length) {
-        timeline.to(titleLines, { yPercent: 0, rotate: 0, duration: 0.9, stagger: 0.11 })
+        timeline.to(titleLines, { yPercent: 0, rotate: 0, duration: 0.9, stagger: 0.11 }, heroWords.length ? '-=0.34' : 0)
       }
 
       if (leadItems.length) {
@@ -59,6 +79,12 @@ export function usePageIntro() {
           stagger: 0.08,
           ease: 'power3.out',
           delay: 0.2,
+        })
+      }
+
+      if (heroWords.length) {
+        timeline.eventCallback('onComplete', () => {
+          window.dispatchEvent(new CustomEvent('portfolio:intro-complete'))
         })
       }
     }, pageRoot.value)
