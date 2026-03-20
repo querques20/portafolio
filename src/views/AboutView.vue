@@ -57,12 +57,6 @@ const { pageRoot } = usePageIntro()
             <p>
               Mientras busco mis primeras oportunidades profesionales en tecnología, actualmente trabajo con mi vehículo en PedidosYa para sostener este camino y seguir formándome. Lo cuento porque es parte real de mi proceso: estoy construyendo mi entrada a la industria con práctica, constancia y mucho esfuerzo.
             </p>
-            <p>
-              Trabajo con WordPress, Vue, React, Node.js, JavaScript, CSS y Laravel, y también con stacks como MERN y LAMP. Eso implica moverme con MongoDB, Express, React, Node.js, Linux, Apache, MySQL y PHP, además de HTML y todo el armado de una web de punta a punta.
-            </p>
-            <p>
-              Estoy dispuesto a darlo todo en mis primeros proyectos: compromiso, ganas reales de aprender, buena comunicación y responsabilidad con cada entrega. Busco sumar experiencia profesional respondiendo bien desde el primer trabajo.
-            </p>
           </div>
         </div>
       </div>
