@@ -58,9 +58,9 @@ const heroWordLines = computed(() =>
           <button
             type="button"
             class="rounded-full bg-[var(--ink)] px-6 py-4 font-['DM_Sans'] text-sm font-bold tracking-[.06em] text-[var(--sand)] shadow-[0_18px_32px_rgba(30,30,27,.18)]"
-            @click="navigateToRoute('projects')"
+            @click="navigateToRoute('about')"
           >
-            Ver proyectos
+            Mi recorrido
           </button>
           <button
             type="button"
