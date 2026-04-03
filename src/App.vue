@@ -3,11 +3,11 @@ import { computed, nextTick, onBeforeUnmount, onMounted, provide, ref, watch } f
 import { useRoute, useRouter } from 'vue-router'
 import { gsap } from 'gsap'
 import { email, footerColumns, navItems } from './content/portfolio'
+import WaveGrid from './components/WaveGrid.vue'
 
 const route = useRoute()
 const router = useRouter()
 
-const ambientScene = ref(null)
 const routeViewport = ref(null)
 const activeRouteName = computed(() => route.name ?? 'home')
 const isDesktopNavVisible = ref(false)
@@ -17,7 +17,6 @@ const isRouteTransitioning = ref(false)
 const routeOrderByName = Object.fromEntries(navItems.map((item) => [item.name, item.order]))
 
 let skipNextRouteEnterAnimation = false
-let ambientContext
 
 const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
 const isDesktopNavEnabled = () => window.innerWidth >= 768 && window.matchMedia('(pointer: fine)').matches
@@ -146,70 +145,17 @@ onMounted(() => {
   syncDesktopNavVisibility()
   window.addEventListener('portfolio:intro-complete', handlePageIntroComplete)
   window.addEventListener('resize', syncDesktopNavVisibility, { passive: true })
-
-  if (!ambientScene.value || prefersReducedMotion()) return
-
-  ambientContext = gsap.context(() => {
-    const nebulaGroups = gsap.utils.toArray('[data-site-nebula]')
-    const nebulaMotion = [
-      { x: -186, y: 102, rotate: -10, scale: 1.14, opacity: 0.98, duration: 4.8 },
-      { x: 154, y: -96, rotate: 11, scale: 1.18, opacity: 0.9, duration: 4.2 },
-      { x: -128, y: 86, rotate: 14, scale: 1.16, opacity: 0.84, duration: 3.9 },
-    ]
-
-    gsap.set(nebulaGroups, {
-      opacity: 1,
-      x: 0,
-      y: 0,
-      scale: 1,
-      rotate: 0,
-      transformOrigin: '50% 50%',
-    })
-
-    nebulaGroups.forEach((item, index) => {
-      const motion = nebulaMotion[index] ?? nebulaMotion[nebulaMotion.length - 1]
-
-      gsap.to(item, {
-        x: motion.x,
-        y: motion.y,
-        rotate: motion.rotate,
-        scale: motion.scale,
-        opacity: motion.opacity,
-        duration: motion.duration,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-      })
-    })
-  }, ambientScene.value)
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('portfolio:intro-complete', handlePageIntroComplete)
   window.removeEventListener('resize', syncDesktopNavVisibility)
-  ambientContext?.revert()
 })
 </script>
 
 <template>
   <div class="portfolio-app bg-[var(--sand-alt)] text-[var(--ink)]">
-    <div ref="ambientScene" class="site-ambient" aria-hidden="true">
-      <div class="site-nebula site-nebula-primary" data-site-nebula>
-        <div class="site-nebula-mist site-nebula-mist-primary" data-site-mist data-base-opacity="0.84"></div>
-        <div class="site-nebula-mist site-nebula-mist-accent" data-site-mist data-base-opacity="0.72"></div>
-        <div class="site-nebula-mist site-nebula-mist-tail" data-site-mist data-base-opacity="0.58"></div>
-      </div>
-
-      <div class="site-nebula site-nebula-secondary" data-site-nebula>
-        <div class="site-nebula-mist site-nebula-mist-secondary" data-site-mist data-base-opacity="0.68"></div>
-        <div class="site-nebula-mist site-nebula-mist-soft" data-site-mist data-base-opacity="0.5"></div>
-      </div>
-
-      <div class="site-nebula site-nebula-tertiary" data-site-nebula>
-        <div class="site-nebula-mist site-nebula-mist-tertiary" data-site-mist data-base-opacity="0.6"></div>
-        <div class="site-nebula-mist site-nebula-mist-glow" data-site-mist data-base-opacity="0.46"></div>
-      </div>
-    </div>
+    <WaveGrid />
 
     <header class="pointer-events-none fixed inset-x-0 top-0 z-50 px-4 pt-6">
       <div class="mx-auto flex max-w-[1200px] flex-col gap-3">
@@ -326,98 +272,6 @@ footer {
   z-index: 1;
 }
 
-.site-ambient {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.site-nebula {
-  position: absolute;
-  isolation: isolate;
-  transform-origin: 50% 50%;
-  will-change: transform, opacity;
-}
-
-.site-nebula-primary {
-  right: -14%;
-  top: 10%;
-  width: clamp(28rem, 50vw, 52rem);
-  height: clamp(22rem, 36vw, 38rem);
-}
-
-.site-nebula-secondary {
-  left: -10%;
-  bottom: 10%;
-  width: clamp(18rem, 30vw, 30rem);
-  height: clamp(14rem, 24vw, 24rem);
-  opacity: .84;
-}
-
-.site-nebula-tertiary {
-  left: 36%;
-  top: 34%;
-  width: clamp(16rem, 24vw, 24rem);
-  height: clamp(12rem, 18vw, 18rem);
-  opacity: .72;
-}
-
-.site-nebula-mist {
-  position: absolute;
-  border-radius: 44% 56% 62% 38% / 42% 38% 62% 58%;
-  filter: blur(38px);
-  mix-blend-mode: screen;
-}
-
-.site-nebula-mist-primary {
-  inset: 4% 8% 10% 18%;
-  background:
-    radial-gradient(circle at 42% 44%, rgba(226, 232, 255, .98) 0%, rgba(124, 140, 255, .62) 24%, rgba(124, 140, 255, .26) 50%, rgba(124, 140, 255, 0) 78%);
-}
-
-.site-nebula-mist-accent {
-  inset: 14% 0 8% 26%;
-  border-radius: 58% 42% 46% 54% / 48% 60% 40% 52%;
-  background:
-    radial-gradient(ellipse at 66% 52%, rgba(198, 208, 255, .9) 0%, rgba(124, 140, 255, .48) 22%, rgba(124, 140, 255, .18) 50%, rgba(124, 140, 255, 0) 78%);
-}
-
-.site-nebula-mist-tail {
-  inset: 30% 16% 2% 6%;
-  border-radius: 62% 38% 54% 46% / 34% 54% 46% 66%;
-  background:
-    radial-gradient(ellipse at 36% 54%, rgba(178, 193, 255, .74) 0%, rgba(124, 140, 255, .34) 26%, rgba(124, 140, 255, .12) 52%, rgba(124, 140, 255, 0) 80%);
-}
-
-.site-nebula-mist-secondary {
-  inset: 2% 10% 10% 8%;
-  background:
-    radial-gradient(circle at 44% 44%, rgba(208, 217, 255, .82) 0%, rgba(124, 140, 255, .42) 26%, rgba(124, 140, 255, .18) 52%, rgba(124, 140, 255, 0) 80%);
-}
-
-.site-nebula-mist-soft {
-  inset: 28% 4% 0 20%;
-  border-radius: 52% 48% 58% 42% / 58% 42% 58% 42%;
-  background:
-    radial-gradient(ellipse at 62% 46%, rgba(170, 188, 255, .62) 0%, rgba(124, 140, 255, .28) 28%, rgba(124, 140, 255, .12) 54%, rgba(124, 140, 255, 0) 82%);
-}
-
-.site-nebula-mist-tertiary {
-  inset: 8% 8% 10% 10%;
-  border-radius: 46% 54% 50% 50% / 54% 46% 54% 46%;
-  background:
-    radial-gradient(circle at 52% 48%, rgba(214, 223, 255, .78) 0%, rgba(124, 140, 255, .34) 28%, rgba(124, 140, 255, .14) 56%, rgba(124, 140, 255, 0) 82%);
-}
-
-.site-nebula-mist-glow {
-  inset: 18% 18% 14% 18%;
-  border-radius: 58% 42% 62% 38% / 38% 58% 42% 62%;
-  background:
-    radial-gradient(circle at 48% 50%, rgba(228, 233, 255, .82) 0%, rgba(124, 140, 255, .28) 30%, rgba(124, 140, 255, .1) 54%, rgba(124, 140, 255, 0) 80%);
-}
-
 .route-stage {
   overflow-x: clip;
 }
@@ -446,27 +300,4 @@ footer {
   }
 }
 
-@media (max-width: 1023px) {
-  .site-nebula-primary {
-    right: -28%;
-    top: 14%;
-    width: 24rem;
-    height: 18rem;
-  }
-
-  .site-nebula-secondary {
-    left: auto;
-    right: -16%;
-    bottom: 10%;
-    width: 14rem;
-    height: 11rem;
-  }
-
-  .site-nebula-tertiary {
-    left: 20%;
-    top: 40%;
-    width: 12rem;
-    height: 10rem;
-  }
-}
 </style>
