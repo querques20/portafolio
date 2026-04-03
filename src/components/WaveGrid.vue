@@ -12,10 +12,10 @@ let time = 0
 // Grid config
 const COLS      = 26
 const ROWS      = 16
-const WAVE_AMP  = 0.28
-const WAVE_SPD  = 0.008
+const WAVE_AMP  = 0.18
+const WAVE_SPD  = 0.003
 const MOUSE_R   = 3.2
-const MOUSE_STR = 0.18
+const MOUSE_STR = 0.14
 
 const prefersReducedMotion = () =>
   window.matchMedia('(prefers-reduced-motion: reduce)').matches

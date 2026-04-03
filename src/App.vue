@@ -4,6 +4,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { gsap } from 'gsap'
 import { email, footerColumns, navItems } from './content/portfolio'
 import WaveGrid from './components/WaveGrid.vue'
+import CustomCursor from './components/CustomCursor.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -155,6 +156,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="portfolio-app bg-[var(--sand-alt)] text-[var(--ink)]">
+    <CustomCursor />
     <WaveGrid />
 
     <header class="pointer-events-none fixed inset-x-0 top-0 z-50 px-4 pt-6">
