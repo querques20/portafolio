@@ -33,7 +33,7 @@ const openLink = (link) => {
     <div class="mx-auto flex max-w-[1200px] flex-col gap-10">
       <div class="grid gap-8 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-24">
         <div class="space-y-5" data-reveal>
-          <p class="font-['DM_Sans'] text-[12px] font-bold uppercase tracking-[.24em] text-[var(--accent)]">04 / CONTACTO</p>
+          <p class="font-['DM_Sans'] text-[12px] font-bold uppercase tracking-[.24em] text-[var(--accent)]">03 / CONTACTO</p>
           <h1 class="font-['Space_Grotesk'] text-[clamp(2.6rem,5vw,3.7rem)] font-bold leading-[.96] tracking-[-.05em]">
             <span class="page-title-wrap"><span class="page-title-line">Contacto</span></span>
           </h1>
