@@ -1,8 +1,9 @@
 <script setup>
 import { computed, inject } from 'vue'
 import { useRouter } from 'vue-router'
-import { heroLines, heroTags, pillars, previewProjects } from '../content/portfolio'
+import { heroLines, heroTags, pillars } from '../content/portfolio'
 import { usePageIntro } from '../composables/usePageIntro'
+import JourneyTimeline from '../components/JourneyTimeline.vue'
 
 const router = useRouter()
 const navigateToRoute = inject('navigateToRoute', (name) => router.push({ name }))
@@ -82,9 +83,9 @@ const heroWordLines = computed(() =>
       </div>
 
       <section class="glass-panel rounded-[32px] p-6 md:p-9" data-card>
-        <div class="space-y-4" data-reveal>
+        <div class="mb-10 space-y-4" data-reveal>
           <h2 class="max-w-[700px] font-['Space_Grotesk'] text-[clamp(2rem,4.4vw,2.5rem)] font-medium leading-[1.05] tracking-[-.05em]">
-            Una breve selección del tipo de proyectos en los que me gusta trabajar.
+            Mi recorrido de formación, constancia y compromiso.
           </h2>
           <div class="section-divider" aria-hidden="true">
             <span></span>
@@ -92,23 +93,7 @@ const heroWordLines = computed(() =>
             <span></span>
           </div>
         </div>
-        <div class="mt-8 grid gap-6 lg:grid-cols-3">
-          <article
-            v-for="project in previewProjects"
-            :key="project.title"
-            class="glass-card lift-card rounded-[24px] p-5"
-            data-card
-          >
-            <div class="overflow-hidden rounded-[18px]">
-              <img :src="project.image" :alt="project.title" loading="lazy" decoding="async" data-visual class="h-45 w-full object-cover" />
-            </div>
-            <p class="mt-4 font-['DM_Sans'] text-[11px] font-bold uppercase tracking-[.18em]" :style="{ color: project.accent }">
-              {{ project.label }}
-            </p>
-            <h3 class="mt-2 font-['Space_Grotesk'] text-[1.75rem] font-semibold tracking-[-.04em]">{{ project.title }}</h3>
-            <p class="mt-3 max-w-[320px] leading-7 text-[var(--muted)]">{{ project.body }}</p>
-          </article>
-        </div>
+        <JourneyTimeline />
       </section>
 
       <section class="glass-panel rounded-[32px] p-6 md:p-9" data-card>
