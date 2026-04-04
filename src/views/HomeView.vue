@@ -1,12 +1,10 @@
 <script setup>
 import { computed, inject } from 'vue'
-import { useRouter } from 'vue-router'
 import { heroLines, heroTags, pillars } from '../content/portfolio'
 import { usePageIntro } from '../composables/usePageIntro'
 import JourneyTimeline from '../components/JourneyTimeline.vue'
 
-const router = useRouter()
-const navigateToRoute = inject('navigateToRoute', (name) => router.push({ name }))
+const navigateToRoute = inject('navigateToRoute')
 const { pageRoot } = usePageIntro()
 
 const heroWordLines = computed(() =>

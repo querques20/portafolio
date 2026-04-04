@@ -11,7 +11,6 @@ onMounted(() => {
   if (!root.value || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
   ctx = gsap.context(() => {
-    // Animate each milestone card on scroll
     const cards = gsap.utils.toArray('.tl-milestone', root.value)
     cards.forEach((card) => {
       gsap.from(card, {
@@ -26,7 +25,6 @@ onMounted(() => {
       })
     })
 
-    // Draw the track line as you scroll through the section
     gsap.from('.tl-track-fill', {
       scaleY: 0,
       transformOrigin: 'top center',
@@ -284,5 +282,10 @@ onBeforeUnmount(() => {
 @keyframes tl-blink {
   0%, 100% { opacity: 1;    }
   50%       { opacity: 0.2; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tl-dot-ring { animation: none; }
+  .tl-open-dot { animation: none; }
 }
 </style>

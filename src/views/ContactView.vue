@@ -1,11 +1,9 @@
 <script setup>
 import { inject, reactive } from 'vue'
-import { useRouter } from 'vue-router'
 import { contactLinks, email } from '../content/portfolio'
 import { usePageIntro } from '../composables/usePageIntro'
 
-const router = useRouter()
-const navigateToRoute = inject('navigateToRoute', (name) => router.push({ name }))
+const navigateToRoute = inject('navigateToRoute')
 const { pageRoot } = usePageIntro()
 
 const form = reactive({ name: '', email: '', project: '', message: '' })
@@ -109,7 +107,7 @@ const openLink = (link) => {
           </a>
           <p class="mt-5 whitespace-pre-line text-[1.05rem] leading-8 text-[var(--muted)]">
             Buenos Aires / Remoto
-            ES + EN
+            ES / EN
             Primeros proyectos y colaboraciones
           </p>
         </article>

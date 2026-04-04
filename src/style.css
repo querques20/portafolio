@@ -64,14 +64,6 @@
   backdrop-filter: blur(16px);
 }
 
-.project-dark {
-  background:
-    radial-gradient(circle at top right, rgba(124, 140, 255, 0.12), transparent 28%),
-    #1e1e1b;
-  border: 1px solid rgba(243, 239, 231, 0.12);
-  box-shadow: 0 22px 46px rgba(30, 30, 27, 0.24);
-  color: #f3efe7;
-}
 
 .page-title-wrap {
   position: relative;
@@ -119,24 +111,3 @@
   color: #5e5a55;
 }
 
-.lift-card {
-  transition:
-    transform 0.32s ease,
-    box-shadow 0.32s ease,
-    border-color 0.32s ease;
-}
-
-.lift-card [data-visual] {
-  transition: transform 0.45s ease;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .lift-card:hover {
-    transform: translateY(-6px) scale(1.01);
-    box-shadow: 0 28px 60px rgba(30, 30, 27, 0.14);
-  }
-
-  .lift-card:hover [data-visual] {
-    transform: scale(1.05);
-  }
-}

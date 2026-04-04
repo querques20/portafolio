@@ -5,6 +5,7 @@ import * as THREE from 'three'
 const canvasEl = ref(null)
 
 let renderer, scene, camera, pointsMesh, linesMesh
+let ptGeo, ptMat, lineGeo, lineMat
 let animId, W, H
 const mouse = new THREE.Vector2(0, 0)
 let time = 0
@@ -16,9 +17,6 @@ const WAVE_AMP  = 0.18
 const WAVE_SPD  = 0.003
 const MOUSE_R   = 3.2
 const MOUSE_STR = 0.14
-
-const prefersReducedMotion = () =>
-  window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 function worldSize() {
   const aspect = W / H
@@ -64,10 +62,9 @@ function init() {
 
   const { positions, lineIdxs } = buildGeometries()
 
-  // Points
-  const ptGeo = new THREE.BufferGeometry()
+  ptGeo = new THREE.BufferGeometry()
   ptGeo.setAttribute('position', new THREE.BufferAttribute(positions.slice(), 3))
-  const ptMat = new THREE.PointsMaterial({
+  ptMat = new THREE.PointsMaterial({
     color: 0x7c8cff,
     size: 0.05,
     transparent: true,
@@ -77,11 +74,10 @@ function init() {
   pointsMesh = new THREE.Points(ptGeo, ptMat)
   scene.add(pointsMesh)
 
-  // Lines
-  const lineGeo = new THREE.BufferGeometry()
+  lineGeo = new THREE.BufferGeometry()
   lineGeo.setAttribute('position', new THREE.BufferAttribute(positions.slice(), 3))
   lineGeo.setIndex(lineIdxs)
-  const lineMat = new THREE.LineBasicMaterial({
+  lineMat = new THREE.LineBasicMaterial({
     color: 0x7c8cff,
     transparent: true,
     opacity: 0.14,
@@ -90,9 +86,9 @@ function init() {
   scene.add(linesMesh)
 }
 
-function animate() {
-  animId = requestAnimationFrame(animate)
-  if (prefersReducedMotion()) { renderer.render(scene, camera); return }
+function animate(reducedMotion) {
+  animId = requestAnimationFrame(() => animate(reducedMotion))
+  if (reducedMotion) { renderer.render(scene, camera); return }
 
   time += WAVE_SPD
   const { worldW, worldH } = worldSize()
@@ -109,7 +105,6 @@ function animate() {
       const waveY = Math.sin(time + phase) * WAVE_AMP
       const waveX = Math.cos(time * 0.7 + phase * 1.2) * (WAVE_AMP * 0.5)
 
-      // Mouse repulsion
       const mx = mouse.x * worldW * 0.5
       const my = mouse.y * worldH * 0.5
       const dx = baseX - mx
@@ -143,14 +138,22 @@ function onMouseMove(e) {
 }
 
 onMounted(() => {
+  if (!window.matchMedia('(pointer: fine)').matches) return
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
   init()
-  animate()
+  animate(reducedMotion)
   window.addEventListener('resize',    onResize,    { passive: true })
   window.addEventListener('mousemove', onMouseMove, { passive: true })
 })
 
 onBeforeUnmount(() => {
   cancelAnimationFrame(animId)
+  ptGeo?.dispose()
+  ptMat?.dispose()
+  lineGeo?.dispose()
+  lineMat?.dispose()
   renderer?.dispose()
   window.removeEventListener('resize',    onResize)
   window.removeEventListener('mousemove', onMouseMove)

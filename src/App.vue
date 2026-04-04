@@ -168,7 +168,7 @@ onBeforeUnmount(() => {
           <nav
             class="hero-nav pointer-events-auto flex items-center justify-between gap-4 rounded-full border-[rgba(207,199,187,.88)] bg-white px-4 py-3 backdrop-blur-xl shadow-[0_18px_40px_rgba(30,30,27,.08)]"
           >
-            <button type="button" class="font-['DM_Sans'] text-[13px] font-bold uppercase tracking-[.18em]" @click="navigateToRoute('home')">
+            <button type="button" aria-label="Volver al inicio" class="font-['DM_Sans'] text-[13px] font-bold uppercase tracking-[.18em]" @click="navigateToRoute('home')">
               facundo.dev
             </button>
 
@@ -177,6 +177,7 @@ onBeforeUnmount(() => {
                 v-for="item in navItems"
                 :key="item.name"
                 type="button"
+                :aria-current="activeRouteName === item.name ? 'page' : undefined"
                 class="rounded-full px-4 py-2 font-['DM_Sans'] text-[12px] font-bold uppercase tracking-[.18em] transition-all duration-300"
                 :class="activeRouteName === item.name ? 'bg-[rgba(227,221,210,.9)] text-[var(--ink)]' : 'text-[var(--muted)] hover:bg-[rgba(227,221,210,.62)] hover:text-[var(--ink)]'"
                 @click="navigateToRoute(item.name)"
@@ -206,6 +207,7 @@ onBeforeUnmount(() => {
               v-for="item in navItems"
               :key="`${item.name}-mobile`"
               type="button"
+              :aria-current="activeRouteName === item.name ? 'page' : undefined"
               class="shrink-0 rounded-full px-4 py-2 font-['DM_Sans'] text-[11px] font-bold uppercase tracking-[.18em] transition-all duration-300"
               :class="activeRouteName === item.name ? 'bg-[var(--ink)] text-[var(--sand)]' : 'bg-[rgba(248,246,241,.96)] text-[var(--muted)]'"
               @click="navigateToRoute(item.name)"

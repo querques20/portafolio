@@ -1,9 +1,9 @@
 export const email = 'facundo.albuquerque@gmail.com'
 
 export const navItems = [
-  { id: 'inicio',   name: 'home',    path: '/',         label: 'Inicio',   order: 0 },
-  { id: 'sobre-mi', name: 'about',   path: '/sobre-mi', label: 'Sobre mí', order: 1 },
-  { id: 'contacto', name: 'contact', path: '/contacto', label: 'Contacto', order: 2 },
+  { name: 'home',    label: 'Inicio',   order: 0 },
+  { name: 'about',   label: 'Sobre mí', order: 1 },
+  { name: 'contact', label: 'Contacto', order: 2 },
 ]
 
 export const heroLines = ['Diseño y desarrollo', 'digital', 'para sitios y marcas']
@@ -17,7 +17,6 @@ export const milestones = [
     title: 'Aposté todo al desarrollo web',
     body: 'Empecé a estudiar de forma intensiva, sin atajos. Impulsado por el interés real de construir cosas con código y entender cómo funciona todo de verdad.',
     tag: '📚 Inicio de formación intensiva',
-    accent: 'var(--accent)',
   },
   {
     id: 'davinci',
@@ -26,7 +25,6 @@ export const milestones = [
     title: 'Carrera Full Stack de 2 años',
     body: 'Formación acelerada cubriendo frontend, backend, bases de datos y herramientas reales. Vue, React, Node, Laravel, MySQL, MongoDB y más.',
     tag: '🎓 Carrera en curso · Full Stack',
-    accent: 'var(--earth)',
   },
   {
     id: 'beca',
@@ -35,7 +33,6 @@ export const milestones = [
     title: 'Beca por promedio académico',
     body: 'Obtuve una beca por rendimiento en Da Vinci. Un hito que confirma que el esfuerzo real da resultados y me impulsó a seguir con más exigencia todavía.',
     tag: '⭐ Beca · promedio destacado',
-    accent: 'var(--accent)',
   },
   {
     id: 'stack',
@@ -44,7 +41,6 @@ export const milestones = [
     title: 'Proyectos de práctica en cada tecnología',
     body: 'No para mostrar — para entender de verdad cómo funciona cada parte. WordPress, Vue, React, Node, Laravel y bases de datos relacionales y no relacionales.',
     tag: '⚡ Stack completo · práctica constante',
-    accent: 'var(--earth)',
   },
   {
     id: 'ahora',
@@ -53,7 +49,6 @@ export const milestones = [
     title: 'Listo para mi primera oportunidad profesional',
     body: 'Sostengo este camino trabajando con mi vehículo en PedidosYa mientras busco mi primer rol en tech. Compromiso real, ganas de aprender rápido y disponibilidad total desde el día uno.',
     tag: null,
-    accent: 'var(--accent)',
     isNow: true,
   },
 ]

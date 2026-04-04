@@ -9,7 +9,7 @@ const { pageRoot } = usePageIntro()
   <section ref="pageRoot" class="route-page px-4 pb-18 pt-4 md:pb-20 md:pt-6">
     <div class="mx-auto flex max-w-[1200px] flex-col gap-14 md:gap-16">
       <div class="grid items-start gap-8 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-20">
-        <aside class="space-y-6" data-reveal>
+        <div class="space-y-6" data-reveal>
           <div class="space-y-5">
             <p class="font-['DM_Sans'] text-[12px] font-bold uppercase tracking-[.24em] text-[var(--accent)]">02 / SOBRE MÍ</p>
             <h1 class="font-['Space_Grotesk'] text-[clamp(2.6rem,5vw,3.7rem)] font-bold leading-[.96] tracking-[-.05em]">
@@ -24,6 +24,8 @@ const { pageRoot } = usePageIntro()
               <img
                 src="/portfolio/facundo-workspace.jpeg"
                 alt="Facundo trabajando en su setup"
+                width="800"
+                height="360"
                 loading="eager"
                 fetchpriority="high"
                 decoding="async"
@@ -40,10 +42,10 @@ const { pageRoot } = usePageIntro()
             Buenos Aires · desarrollo web
           </p>
           <div class="h-[3px] w-[72px] rounded-full bg-[var(--accent)]"></div>
-        </aside>
+        </div>
 
         <div class="space-y-8" data-reveal>
-          <p class="invisible font-['DM_Sans'] text-[12px] font-bold uppercase tracking-[.24em]">02 / SOBRE MÍ</p>
+          <p class="invisible font-['DM_Sans'] text-[12px] font-bold uppercase tracking-[.24em]" aria-hidden="true">02 / SOBRE MÍ</p>
           <h2 class="max-w-[740px] font-['Space_Grotesk'] text-[clamp(2.2rem,4.8vw,3.4rem)] font-medium leading-[1.02] tracking-[-.05em]">
             <span class="page-title-wrap"><span class="page-title-line">Formación, constancia y compromiso para mis primeros proyectos.</span></span>
           </h2>
