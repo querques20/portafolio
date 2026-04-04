@@ -84,6 +84,18 @@ export const contactLinks = [
   { title: 'Respuesta',body: 'Contacto directo por mail',                            href: `mailto:${email}`,  badge: 'Email',        type: 'mailto'   },
 ]
 
+export const projects = [
+  {
+    id: 'bystellabotella',
+    title: 'By Stella Botella',
+    category: 'E-commerce',
+    year: '2025',
+    description: 'Tienda online de patrones de crochet y tutoriales. Catálogo de productos descargables, newsletter con patrón gratis, diseño cálido y totalmente responsive.',
+    tags: ['Astro', 'Vue', 'E-commerce', 'CSS'],
+    url: 'https://bystellabotella.com',
+  },
+]
+
 export const footerColumns = [
   { label: 'NAVEGACIÓN', items: ['Inicio', 'Sobre mí', 'Contacto'] },
   { label: 'ENFOQUE',    items: ['Full Stack', 'WordPress', 'Vue / React', 'MERN + LAMP'] },
