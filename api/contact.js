@@ -11,29 +11,35 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Campos requeridos incompletos' })
   }
 
-  const transporter = nodemailer.createTransport({
-    host: 'smtp.hostinger.com',
-    port: 465,
-    secure: true,
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
-  })
+  try {
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.hostinger.com',
+      port: 587,
+      secure: false,
+      requireTLS: true,
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    })
 
-  await transporter.sendMail({
-    from: `"querque.dev" <${process.env.EMAIL_USER}>`,
-    to: process.env.EMAIL_USER,
-    replyTo: email,
-    subject: `Consulta portfolio — ${project || 'Proyecto digital'}`,
-    html: `
-      <p><strong>Nombre:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Tipo de proyecto:</strong> ${project || '—'}</p>
-      <p><strong>Mensaje:</strong></p>
-      <p>${message.replace(/\n/g, '<br>')}</p>
-    `,
-  })
+    await transporter.sendMail({
+      from: `"querque.dev" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_USER,
+      replyTo: email,
+      subject: `Consulta portfolio — ${project || 'Proyecto digital'}`,
+      html: `
+        <p><strong>Nombre:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Tipo de proyecto:</strong> ${project || '—'}</p>
+        <p><strong>Mensaje:</strong></p>
+        <p>${message.replace(/\n/g, '<br>')}</p>
+      `,
+    })
 
-  return res.status(200).json({ ok: true })
+    return res.status(200).json({ ok: true })
+  } catch (err) {
+    console.error('SMTP error:', err?.message ?? err)
+    return res.status(500).json({ error: err?.message ?? 'Error desconocido' })
+  }
 }
