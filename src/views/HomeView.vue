@@ -152,7 +152,7 @@ const heroWordLines = computed(() =>
           <div class="space-y-4" data-reveal>
             <p class="font-['DM_Sans'] text-[12px] font-bold uppercase tracking-[.24em] text-[var(--accent)]">PRIMERA ETAPA / PERFIL</p>
             <p class="max-w-[236px] leading-7 text-[var(--muted)]">
-              Proyecto a proyecto, estudio y práctica constante. Compromiso real en cada cosa que toco.
+              Proyecto a proyecto, estudio y práctica constante.
             </p>
           </div>
           <div class="space-y-4" data-reveal>
