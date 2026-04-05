@@ -46,21 +46,21 @@ export const milestones = [
     id: 'ahora',
     year: '2026 · Ahora',
     num: '→',
-    title: 'Listo para mi primera oportunidad profesional',
-    body: 'Sostengo este camino trabajando con mi vehículo en PedidosYa mientras busco mi primer rol en tech. Compromiso real, ganas de aprender rápido y disponibilidad total desde el día uno.',
+    title: 'Proyectos reales entregados y listo para crecer en un equipo',
+    body: 'Trabajo en PedidosYa para sostener este camino mientras desarrollo sitios reales para clientes. Ya tengo proyectos entregados — e-commerce, gastronomía, branding — y busco mi primer rol formal en tech para seguir creciendo.',
     tag: null,
     isNow: true,
   },
 ]
 
 export const pillars = [
-  ['COMPROMISO', 'Me involucro de verdad y cuido cada entrega, incluso en esta primera etapa.', 'var(--accent)'],
-  ['APRENDIZAJE', 'Estoy creciendo fuerte y convierto esa etapa en mejora constante.',             'var(--earth)'],
-  ['RESPUESTA',   'Busco resolver con seriedad, comunicación clara y muchas ganas de sumar.',      'var(--accent)'],
+  ['COMPROMISO', 'Me involucro de verdad y cuido cada entrega. Tengo proyectos reales que lo demuestran.', 'var(--accent)'],
+  ['APRENDIZAJE', 'Aprendo rápido y convierto cada proyecto en una oportunidad de mejorar.',              'var(--earth)'],
+  ['RESPUESTA',   'Trabajo con seriedad, comunicación clara y ganas reales de aportar desde el día uno.', 'var(--accent)'],
 ]
 
 export const aboutCards = [
-  ['MOMENTO',   'Buscando mis primeras experiencias en desarrollo mientras sostengo mi camino con PedidosYa.', 'var(--accent)'],
+  ['MOMENTO',   'Trabajo en PedidosYa mientras desarrollo proyectos web reales y busco consolidarme en tech.', 'var(--accent)'],
   ['FORMACIÓN', 'Carrera intensiva Full Stack de 2 años en Escuela Da Vinci.',                                'var(--earth)'],
   ['STACK',     'WordPress, Vue, React, Node.js, Laravel y base real en MERN y LAMP.',                       'var(--accent)'],
   ['ACTITUD',   'Compromiso real, ganas de aprender y dedicación total en cada proyecto.',                    'var(--earth)'],
@@ -78,10 +78,9 @@ export const steps = [
 ]
 
 export const contactLinks = [
-  { title: 'LinkedIn', body: 'Recorrido actual y disponibilidad profesional',       href: '',                  badge: 'Próximamente', type: 'external' },
-  { title: 'GitHub',   body: 'Código, práctica constante y proceso de aprendizaje', href: '',                  badge: 'Próximamente', type: 'external' },
-  { title: 'Inicio',   body: 'Volver al comienzo del sitio',                        routeName: 'home',         badge: 'Abrir',        type: 'route'    },
-  { title: 'Respuesta',body: 'Contacto directo por mail',                            href: `mailto:${email}`,  badge: 'Email',        type: 'mailto'   },
+  { title: 'GitHub',   body: 'Código, proyectos entregados y proceso de aprendizaje', href: 'https://github.com/querques20', badge: 'Ver perfil', type: 'external' },
+  { title: 'Inicio',   body: 'Volver al comienzo del sitio',                          routeName: 'home',                    badge: 'Abrir',      type: 'route'    },
+  { title: 'Respuesta',body: 'Contacto directo por mail',                              href: `mailto:${email}`,              badge: 'Email',      type: 'mailto'   },
 ]
 
 export const projects = [
@@ -116,7 +115,11 @@ export const projects = [
 ]
 
 export const footerColumns = [
-  { label: 'NAVEGACIÓN', items: ['Inicio', 'Sobre mí', 'Contacto'] },
-  { label: 'ENFOQUE',    items: ['Full Stack', 'WordPress', 'Vue / React', 'MERN + LAMP'] },
-  { label: 'CONTACTO',   items: [email, 'Buenos Aires, AR', 'Disponible para primeros proyectos'] },
+  { label: 'NAVEGACIÓN', items: [
+    { text: 'Inicio',   route: 'home'    },
+    { text: 'Sobre mí', route: 'about'   },
+    { text: 'Contacto', route: 'contact' },
+  ]},
+  { label: 'ENFOQUE',  items: ['Full Stack', 'WordPress', 'Vue / React', 'MERN + LAMP'] },
+  { label: 'CONTACTO', items: [email, 'Buenos Aires, AR', 'Disponible para nuevos proyectos'] },
 ]

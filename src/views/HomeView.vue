@@ -49,7 +49,7 @@ const heroWordLines = computed(() =>
         </div>
 
         <p class="max-w-[620px] text-[1.15rem] leading-8 text-[var(--muted)]" data-reveal>
-          Estoy terminando una formación intensiva Full Stack y buscando mis primeras oportunidades para aportar compromiso real en proyectos web.
+          Cursando una carrera Full Stack, con proyectos reales entregados y buscando crecer en un equipo donde pueda aportar y aprender de verdad.
         </p>
 
         <div class="flex flex-wrap items-center justify-center gap-3" data-reveal>
@@ -152,17 +152,17 @@ const heroWordLines = computed(() =>
           <div class="space-y-4" data-reveal>
             <p class="font-['DM_Sans'] text-[12px] font-bold uppercase tracking-[.24em] text-[var(--accent)]">PRIMERA ETAPA / PERFIL</p>
             <p class="max-w-[236px] leading-7 text-[var(--muted)]">
-              Estoy construyendo experiencia real mientras estudio, practico y sigo mejorando proyecto a proyecto.
+              Proyecto a proyecto, estudio y práctica constante. Ya hay trabajo real entregado y sigo sumando.
             </p>
           </div>
           <div class="space-y-4" data-reveal>
             <h2 class="max-w-[700px] font-['Space_Grotesk'] text-[clamp(2.1rem,4.8vw,2.7rem)] font-medium leading-[1.04] tracking-[-.05em]">
-              Busco proyectos donde pueda sumar trabajo serio, criterio y muchas ganas de crecer.
+              Busco un equipo donde pueda aportar trabajo serio, crecer rápido y seguir construyendo cosas reales.
             </h2>
             <p class="max-w-[620px] text-lg leading-8 text-[var(--muted)]">
-              Me interesa involucrarme, aprender rápido y responder bien desde el primer encargo, tanto en WordPress como en stacks modernos de front-end y back-end.
+              Ya trabajé en proyectos reales de e-commerce, gastronomía y branding — en WordPress, Vue, Node y Laravel. Me involucro de verdad y respondo bien desde el primer día.
             </p>
-            <p class="text-base font-medium text-[var(--accent)]">Primeras oportunidades, compromiso real y mejora constante.</p>
+            <p class="text-base font-medium text-[var(--accent)]">Proyectos entregados, compromiso real y mejora constante.</p>
           </div>
         </div>
         <div class="mt-8 grid gap-6 md:grid-cols-3">

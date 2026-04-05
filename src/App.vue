@@ -234,21 +234,29 @@ onBeforeUnmount(() => {
           <div class="space-y-3">
             <p class="font-['DM_Sans'] text-[13px] font-bold uppercase tracking-[.16em]">facundo.dev</p>
             <p class="max-w-[352px] leading-7 text-[var(--muted)]">
-              Desarrollador full stack en formación, enfocado en convertir estudio, práctica y compromiso en experiencia real.
+              Desarrollador full stack con proyectos reales entregados. Estudio, práctica constante y compromiso en cada entrega.
             </p>
           </div>
 
           <div v-for="column in footerColumns" :key="column.label" class="space-y-3">
             <p class="font-['DM_Sans'] text-[11px] font-bold uppercase tracking-[.18em] text-[var(--accent)]">{{ column.label }}</p>
             <div class="space-y-1 text-sm leading-7">
-              <p v-for="item in column.items" :key="item">{{ item }}</p>
+              <template v-for="item in column.items" :key="typeof item === 'string' ? item : item.text">
+                <button
+                  v-if="typeof item === 'object'"
+                  type="button"
+                  class="block text-left hover:text-[var(--accent)] transition-colors duration-200"
+                  @click="navigateToRoute(item.route)"
+                >{{ item.text }}</button>
+                <p v-else>{{ item }}</p>
+              </template>
             </div>
           </div>
         </div>
 
         <div class="flex flex-col gap-3 border-t border-[rgba(207,199,187,.82)] pt-6 text-sm text-[var(--muted)] md:flex-row md:items-center md:justify-between">
           <p>Portfolio / 2026</p>
-          <p>Primeros proyectos, aprendizaje constante y trabajo serio.</p>
+          <p>Proyectos reales, aprendizaje constante y trabajo serio.</p>
           <p>{{ email }}</p>
         </div>
       </div>

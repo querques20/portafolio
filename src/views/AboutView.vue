@@ -35,7 +35,7 @@ const { pageRoot } = usePageIntro()
             </div>
             <div class="mt-3 w-fit rounded-full border border-[rgba(207,199,187,.72)] bg-[rgba(243,239,231,.82)] px-4 py-3 shadow-[0_14px_28px_rgba(30,30,27,.08)]">
               <p class="font-['DM_Sans'] text-[10px] font-bold uppercase tracking-[.18em]">FACUNDO</p>
-              <p class="text-[13px] font-medium leading-5 text-[var(--muted)]">Full Stack en formación</p>
+              <p class="text-[13px] font-medium leading-5 text-[var(--muted)]">Desarrollador Full Stack</p>
             </div>
           </div>
           <p class="font-['DM_Sans'] text-[12px] font-bold uppercase tracking-[.16em] text-[var(--muted)]">
@@ -47,7 +47,7 @@ const { pageRoot } = usePageIntro()
         <div class="space-y-8" data-reveal>
           <p class="invisible font-['DM_Sans'] text-[12px] font-bold uppercase tracking-[.24em]" aria-hidden="true">02 / SOBRE MÍ</p>
           <h2 class="max-w-[740px] font-['Space_Grotesk'] text-[clamp(2.2rem,4.8vw,3.4rem)] font-medium leading-[1.02] tracking-[-.05em]">
-            <span class="page-title-wrap"><span class="page-title-line">Formación, constancia y compromiso para mis primeros proyectos.</span></span>
+            <span class="page-title-wrap"><span class="page-title-line">Formación, proyectos reales entregados y ganas de seguir creciendo.</span></span>
           </h2>
           <div class="max-w-[760px] space-y-6 text-[1.08rem] leading-8 text-[var(--muted)] md:text-[1.14rem] md:leading-9">
             <p>
@@ -57,7 +57,7 @@ const { pageRoot } = usePageIntro()
               Hoy estoy cursando una carrera acelerada de 2 años de Desarrollador Full Stack en Escuela Da Vinci. En ese recorrido también obtuve una beca por promedio, algo que me dio todavía más impulso para seguir tomándome esta etapa con seriedad.
             </p>
             <p>
-              Mientras busco mis primeras oportunidades profesionales en tecnología, actualmente trabajo con mi vehículo en PedidosYa para sostener este camino y seguir formándome. Lo cuento porque es parte real de mi proceso: estoy construyendo mi entrada a la industria con práctica, constancia y mucho esfuerzo.
+              Actualmente trabajo en PedidosYa para sostener este camino mientras desarrollo proyectos web reales para clientes. Ya tengo sitios entregados — e-commerce, gastronomía, branding — y busco consolidar mi carrera con el primer rol formal en tech donde pueda aportar, aprender rápido y seguir creciendo.
             </p>
           </div>
         </div>
@@ -96,7 +96,7 @@ const { pageRoot } = usePageIntro()
       <div class="grid gap-10 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-24">
         <aside class="glass-card rounded-[24px] p-6 md:p-7" data-card>
           <p class="font-['DM_Sans'] text-[12px] font-bold uppercase tracking-[.24em] text-[var(--accent)]">MÉTODO / PROCESO</p>
-          <p class="mt-6 max-w-[228px] leading-8 text-[var(--muted)]">Cómo encaro cada proyecto, incluso en esta primera etapa profesional.</p>
+          <p class="mt-6 max-w-[228px] leading-8 text-[var(--muted)]">Cómo encaro cada proyecto, con trabajo real entregado que lo respalda.</p>
         </aside>
 
         <section class="glass-panel rounded-[30px] p-8 md:p-10" data-card>
