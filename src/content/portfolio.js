@@ -47,7 +47,7 @@ export const milestones = [
     year: '2026 · Ahora',
     num: '→',
     title: 'Construyendo para clientes reales y buscando el equipo correcto',
-    body: 'Diseño y desarrollo sitios web para clientes reales — e-commerce, gastronomía, branding. Busco mi primer rol formal en tech donde pueda aportar, crecer y responder bien.',
+    body: 'Diseño y desarrollo sitios web para clientes reales — e-commerce, gastronomía, branding. Busco mi primer rol formal en desarrollo web donde pueda aportar, crecer y responder bien.',
     tag: null,
     isNow: true,
   },
@@ -60,7 +60,7 @@ export const pillars = [
 ]
 
 export const aboutCards = [
-  ['MOMENTO',   'Trabajo en PedidosYa mientras desarrollo proyectos web reales y busco consolidarme en tech.', 'var(--accent)'],
+  ['MOMENTO',   'Trabajo en PedidosYa mientras desarrollo proyectos web reales y busco consolidarme como desarrollador.', 'var(--accent)'],
   ['FORMACIÓN', 'Carrera intensiva Full Stack de 2 años en Escuela Da Vinci.',                                'var(--earth)'],
   ['STACK',     'WordPress, Vue, React, Node.js, Laravel y base real en MERN y LAMP.',                       'var(--accent)'],
   ['ACTITUD',   'Compromiso real, ganas de aprender y dedicación total en cada proyecto.',                    'var(--earth)'],

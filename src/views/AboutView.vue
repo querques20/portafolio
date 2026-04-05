@@ -57,7 +57,7 @@ const { pageRoot } = usePageIntro()
               Hoy estoy cursando una carrera acelerada de 2 años de Desarrollador Full Stack en Escuela Da Vinci. En ese recorrido también obtuve una beca por promedio, algo que me dio todavía más impulso para seguir con la misma exigencia.
             </p>
             <p>
-              Actualmente trabajo en PedidosYa para sostener este camino mientras diseño y desarrollo sitios web para clientes de distintos rubros. Busco consolidar mi carrera con el primer rol formal en tech donde pueda aportar y crecer de verdad.
+              Actualmente trabajo en PedidosYa para sostener este camino mientras diseño y desarrollo sitios web para clientes de distintos rubros. Busco consolidar mi carrera con el primer rol formal en una empresa donde pueda aportar y crecer de verdad.
             </p>
           </div>
         </div>

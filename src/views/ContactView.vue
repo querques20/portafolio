@@ -59,7 +59,7 @@ const openLink = (link) => {
             <span class="page-title-wrap"><span class="page-title-line">Si necesitás a alguien comprometido para sumarse a un sitio o desarrollo web, me interesa hablar.</span></span>
           </h2>
           <p class="max-w-[660px] text-[1.12rem] leading-8 text-[var(--muted)]">
-            Busco consolidar mi carrera en tech. Me involucro de verdad, respondo bien y mejoro con cada proyecto.
+            Busco consolidar mi carrera en desarrollo web. Me involucro de verdad, respondo bien y mejoro con cada proyecto.
           </p>
         </div>
       </div>
