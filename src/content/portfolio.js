@@ -103,6 +103,16 @@ export const projects = [
     tags: ['PHP', 'MySQL', 'Docker', 'Tailwind'],
     url: 'https://web-production-275ee.up.railway.app',
   },
+  {
+    id: 'la-rucula',
+    title: 'La Rúcula Gastrobar',
+    category: 'Gastronomía',
+    year: '2025',
+    description: 'Sitio web para un gastrobar de cocina costera refinada. Carta interactiva, identidad visual cálida y experiencia de navegación fluida.',
+    tags: ['Vue', 'GSAP'],
+    url: 'https://laruculagastrobar.es/',
+    image: '/portfolio/la-rucula.png',
+  },
 ]
 
 export const footerColumns = [
