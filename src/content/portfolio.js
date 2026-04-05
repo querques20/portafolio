@@ -94,6 +94,15 @@ export const projects = [
     tags: ['Astro', 'Vue', 'E-commerce', 'CSS'],
     url: 'https://bystellabotella.com',
   },
+  {
+    id: 'latidoceramico',
+    title: 'Latido Cerámico',
+    category: 'E-commerce',
+    year: '2025',
+    description: 'Sitio completo para un emprendimiento de cerámica artesanal. Tienda con carrito, panel de administración, sistema de login, checkout y gestión de órdenes.',
+    tags: ['PHP', 'MySQL', 'Docker', 'Tailwind'],
+    url: 'https://web-production-275ee.up.railway.app',
+  },
 ]
 
 export const footerColumns = [
