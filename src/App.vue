@@ -169,7 +169,7 @@ onBeforeUnmount(() => {
             class="hero-nav pointer-events-auto flex items-center justify-between gap-4 rounded-full border-[rgba(207,199,187,.88)] bg-white px-4 py-3 backdrop-blur-xl shadow-[0_18px_40px_rgba(30,30,27,.08)]"
           >
             <button type="button" aria-label="Volver al inicio" class="font-['DM_Sans'] text-[13px] font-bold uppercase tracking-[.18em]" @click="navigateToRoute('home')">
-              facundo.dev
+              querque.dev
             </button>
 
             <div class="hidden items-center gap-2 md:flex">
@@ -232,7 +232,7 @@ onBeforeUnmount(() => {
       <div class="mx-auto flex max-w-[1200px] flex-col gap-8">
         <div class="grid gap-8 lg:grid-cols-[minmax(0,352px)_repeat(3,minmax(0,1fr))]">
           <div class="space-y-3">
-            <p class="font-['DM_Sans'] text-[13px] font-bold uppercase tracking-[.16em]">facundo.dev</p>
+            <p class="font-['DM_Sans'] text-[13px] font-bold uppercase tracking-[.16em]">querque.dev</p>
             <p class="max-w-[352px] leading-7 text-[var(--muted)]">
               Desarrollador full stack con proyectos reales entregados. Estudio, práctica constante y compromiso en cada entrega.
             </p>
