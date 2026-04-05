@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "gsap": "latest",
+    "nodemailer": "^8.0.4",
     "three": "^0.183.2",
     "vue": "latest",
     "vue-router": "^5.0.3"

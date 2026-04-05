@@ -1,5 +1,5 @@
 <script setup>
-import { inject, reactive } from 'vue'
+import { inject, reactive, ref } from 'vue'
 import { contactLinks, email } from '../content/portfolio'
 import { usePageIntro } from '../composables/usePageIntro'
 
@@ -7,14 +7,29 @@ const navigateToRoute = inject('navigateToRoute')
 const { pageRoot } = usePageIntro()
 
 const form = reactive({ name: '', email: '', project: '', message: '' })
+const status = ref('idle') // idle | sending | ok | error
 
-const submitInquiry = () => {
-  const subject = encodeURIComponent(`Consulta portfolio - ${form.project || 'Proyecto digital'}`)
-  const body = encodeURIComponent(
-    [`Nombre: ${form.name || '-'}`, `Email: ${form.email || '-'}`, `Tipo: ${form.project || '-'}`, '', form.message || '-'].join('\n')
-  )
+const submitInquiry = async () => {
+  if (status.value === 'sending') return
+  status.value = 'sending'
 
-  window.location.href = `mailto:${email}?subject=${subject}&body=${body}`
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...form }),
+    })
+
+    if (!res.ok) throw new Error()
+
+    status.value = 'ok'
+    form.name = ''
+    form.email = ''
+    form.project = ''
+    form.message = ''
+  } catch {
+    status.value = 'error'
+  }
 }
 
 const openLink = (link) => {
@@ -88,9 +103,15 @@ const openLink = (link) => {
             <textarea v-model="form.message" rows="6" name="message" required placeholder="Contexto, alcance y tiempos." class="field-input resize-none"></textarea>
           </label>
           <div class="mt-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <p class="leading-7 text-[var(--muted)]">Suelo responder con contexto, tiempos y próximos pasos. ES / EN.</p>
-            <button type="submit" class="rounded-full bg-[var(--ink)] px-6 py-4 font-['DM_Sans'] text-sm font-bold tracking-[.06em] text-[var(--sand)] shadow-[0_18px_32px_rgba(30,30,27,.18)]">
-              Enviar consulta
+            <p v-if="status === 'ok'" class="font-medium text-green-600">Mensaje enviado. Te respondo pronto.</p>
+            <p v-else-if="status === 'error'" class="font-medium text-red-500">Algo salió mal. Escribime directo a {{ email }}</p>
+            <p v-else class="leading-7 text-[var(--muted)]">Suelo responder con contexto, tiempos y próximos pasos. ES / EN.</p>
+            <button
+              type="submit"
+              :disabled="status === 'sending' || status === 'ok'"
+              class="rounded-full bg-[var(--ink)] px-6 py-4 font-['DM_Sans'] text-sm font-bold tracking-[.06em] text-[var(--sand)] shadow-[0_18px_32px_rgba(30,30,27,.18)] disabled:opacity-50 transition-opacity"
+            >
+              {{ status === 'sending' ? 'Enviando...' : status === 'ok' ? 'Enviado ✓' : 'Enviar consulta' }}
             </button>
           </div>
         </form>
