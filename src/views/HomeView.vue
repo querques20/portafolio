@@ -160,7 +160,7 @@ const heroWordLines = computed(() =>
               Busco un equipo donde pueda aportar trabajo serio, crecer rápido y seguir construyendo cosas reales.
             </h2>
             <p class="max-w-[620px] text-lg leading-8 text-[var(--muted)]">
-              Ya trabajé en proyectos reales de e-commerce, gastronomía y branding — en WordPress, Vue, Node y Laravel. Me involucro de verdad y respondo bien desde el primer día.
+              Me involucro de verdad, aprendo rápido y me comprometo con cada entrega desde el primer día.
             </p>
             <p class="text-base font-medium text-[var(--accent)]">Proyectos entregados, compromiso real y mejora constante.</p>
           </div>

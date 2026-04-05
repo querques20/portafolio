@@ -54,7 +54,7 @@ const { pageRoot } = usePageIntro()
               Soy Facundo Luciano Alvarez, aunque en internet me muevo como querque.dev. Hace casi dos años empecé a estudiar desarrollo web de manera intensiva, impulsado por mi interés por las computadoras y por la posibilidad de construir cosas reales con ellas.
             </p>
             <p>
-              Hoy estoy cursando una carrera acelerada de 2 años de Desarrollador Full Stack en Escuela Da Vinci. En ese recorrido también obtuve una beca por promedio, algo que me dio todavía más impulso para seguir tomándome esta etapa con seriedad.
+              Hoy estoy cursando una carrera acelerada de 2 años de Desarrollador Full Stack en Escuela Da Vinci. En ese recorrido también obtuve una beca por promedio, algo que me dio todavía más impulso para seguir con la misma exigencia.
             </p>
             <p>
               Actualmente trabajo en PedidosYa para sostener este camino mientras desarrollo proyectos web reales para clientes. Ya tengo sitios entregados — e-commerce, gastronomía, branding — y busco consolidar mi carrera con el primer rol formal en tech donde pueda aportar, aprender rápido y seguir creciendo.
