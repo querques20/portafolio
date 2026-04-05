@@ -47,7 +47,7 @@ export const milestones = [
     year: '2026 · Ahora',
     num: '→',
     title: 'Proyectos reales entregados y listo para crecer en un equipo',
-    body: 'Trabajo en PedidosYa para sostener este camino mientras desarrollo sitios reales para clientes. Ya tengo proyectos entregados — e-commerce, gastronomía, branding — y busco mi primer rol formal en tech para seguir creciendo.',
+    body: 'Ya tengo proyectos entregados — e-commerce, gastronomía, branding — y busco mi primer rol formal en tech para seguir creciendo.',
     tag: null,
     isNow: true,
   },
