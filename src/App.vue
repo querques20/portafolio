@@ -234,7 +234,7 @@ onBeforeUnmount(() => {
           <div class="space-y-3">
             <p class="font-['DM_Sans'] text-[13px] font-bold uppercase tracking-[.16em]">querque.dev</p>
             <p class="max-w-[352px] leading-7 text-[var(--muted)]">
-              Desarrollador full stack con proyectos reales entregados. Estudio, práctica constante y compromiso en cada entrega.
+              Desarrollador full stack. Estudio, práctica constante y compromiso real en cada proyecto.
             </p>
           </div>
 

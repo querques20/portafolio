@@ -47,7 +47,7 @@ const { pageRoot } = usePageIntro()
         <div class="space-y-8" data-reveal>
           <p class="invisible font-['DM_Sans'] text-[12px] font-bold uppercase tracking-[.24em]" aria-hidden="true">02 / SOBRE MÍ</p>
           <h2 class="max-w-[740px] font-['Space_Grotesk'] text-[clamp(2.2rem,4.8vw,3.4rem)] font-medium leading-[1.02] tracking-[-.05em]">
-            <span class="page-title-wrap"><span class="page-title-line">Formación, proyectos reales entregados y ganas de seguir creciendo.</span></span>
+            <span class="page-title-wrap"><span class="page-title-line">Formación constante, práctica real y ganas de seguir creciendo.</span></span>
           </h2>
           <div class="max-w-[760px] space-y-6 text-[1.08rem] leading-8 text-[var(--muted)] md:text-[1.14rem] md:leading-9">
             <p>
@@ -57,7 +57,7 @@ const { pageRoot } = usePageIntro()
               Hoy estoy cursando una carrera acelerada de 2 años de Desarrollador Full Stack en Escuela Da Vinci. En ese recorrido también obtuve una beca por promedio, algo que me dio todavía más impulso para seguir con la misma exigencia.
             </p>
             <p>
-              Actualmente trabajo en PedidosYa para sostener este camino mientras desarrollo proyectos web reales para clientes. Ya tengo sitios entregados — e-commerce, gastronomía, branding — y busco consolidar mi carrera con el primer rol formal en tech donde pueda aportar, aprender rápido y seguir creciendo.
+              Actualmente trabajo en PedidosYa para sostener este camino mientras diseño y desarrollo sitios web para clientes. Me muevo en e-commerce, gastronomía y branding, y busco consolidar mi carrera con el primer rol formal en tech donde pueda aportar y crecer de verdad.
             </p>
           </div>
         </div>
@@ -96,7 +96,7 @@ const { pageRoot } = usePageIntro()
       <div class="grid gap-10 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-24">
         <aside class="glass-card rounded-[24px] p-6 md:p-7" data-card>
           <p class="font-['DM_Sans'] text-[12px] font-bold uppercase tracking-[.24em] text-[var(--accent)]">MÉTODO / PROCESO</p>
-          <p class="mt-6 max-w-[228px] leading-8 text-[var(--muted)]">Cómo encaro cada proyecto, con trabajo real entregado que lo respalda.</p>
+          <p class="mt-6 max-w-[228px] leading-8 text-[var(--muted)]">Cómo encaro cada proyecto, con seriedad y criterio desde el primero.</p>
         </aside>
 
         <section class="glass-panel rounded-[30px] p-8 md:p-10" data-card>

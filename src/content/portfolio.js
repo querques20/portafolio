@@ -46,15 +46,15 @@ export const milestones = [
     id: 'ahora',
     year: '2026 · Ahora',
     num: '→',
-    title: 'Proyectos reales entregados y listo para crecer en un equipo',
-    body: 'Ya tengo proyectos entregados — e-commerce, gastronomía, branding — y busco mi primer rol formal en tech para seguir creciendo.',
+    title: 'Construyendo para clientes reales y buscando el equipo correcto',
+    body: 'Diseño y desarrollo sitios web para clientes reales — e-commerce, gastronomía, branding. Busco mi primer rol formal en tech donde pueda aportar, crecer y responder bien.',
     tag: null,
     isNow: true,
   },
 ]
 
 export const pillars = [
-  ['COMPROMISO', 'Me involucro de verdad y cuido cada entrega. Tengo proyectos reales que lo demuestran.', 'var(--accent)'],
+  ['COMPROMISO', 'Me involucro de verdad, cuido cada detalle y trabajo con seriedad en todo lo que toco.', 'var(--accent)'],
   ['APRENDIZAJE', 'Aprendo rápido y convierto cada proyecto en una oportunidad de mejorar.',              'var(--earth)'],
   ['RESPUESTA',   'Trabajo con seriedad, comunicación clara y ganas reales de aportar desde el día uno.', 'var(--accent)'],
 ]
@@ -78,7 +78,7 @@ export const steps = [
 ]
 
 export const contactLinks = [
-  { title: 'GitHub',   body: 'Código, proyectos entregados y proceso de aprendizaje', href: 'https://github.com/querques20', badge: 'Ver perfil', type: 'external' },
+  { title: 'GitHub',   body: 'Código, práctica constante y proceso de aprendizaje',    href: 'https://github.com/querques20', badge: 'Ver perfil', type: 'external' },
   { title: 'Inicio',   body: 'Volver al comienzo del sitio',                          routeName: 'home',                    badge: 'Abrir',      type: 'route'    },
   { title: 'Respuesta',body: 'Contacto directo por mail',                              href: `mailto:${email}`,              badge: 'Email',      type: 'mailto'   },
 ]

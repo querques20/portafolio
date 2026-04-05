@@ -59,7 +59,7 @@ const openLink = (link) => {
             <span class="page-title-wrap"><span class="page-title-line">Si necesitás a alguien comprometido para sumarse a un sitio o desarrollo web, me interesa hablar.</span></span>
           </h2>
           <p class="max-w-[660px] text-[1.12rem] leading-8 text-[var(--muted)]">
-            Ya tengo proyectos reales entregados y busco consolidar mi carrera en tech. Me involucro de verdad, respondo bien y sigo mejorando proyecto a proyecto.
+            Busco consolidar mi carrera en tech. Me involucro de verdad, respondo bien y mejoro con cada proyecto.
           </p>
         </div>
       </div>
@@ -168,9 +168,9 @@ const openLink = (link) => {
         </div>
         <div class="space-y-3" data-reveal>
           <h3 class="max-w-[680px] font-['Space_Grotesk'] text-[1.95rem] font-medium leading-[1.06] tracking-[-.04em]">
-            Si hay una oportunidad seria para trabajar y crecer, tengo proyectos reales entregados y estoy listo para dar más.
+            Si hay una oportunidad seria para trabajar y crecer, estoy listo para dar el máximo desde el primer día.
           </h3>
-          <p class="text-base font-medium text-[var(--accent)]">Trabajo real entregado, compromiso constante y mejora continua.</p>
+          <p class="text-base font-medium text-[var(--accent)]">Compromiso real, dedicación constante y mejora continua.</p>
         </div>
       </div>
     </div>

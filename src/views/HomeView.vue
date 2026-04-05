@@ -49,7 +49,7 @@ const heroWordLines = computed(() =>
         </div>
 
         <p class="max-w-[620px] text-[1.15rem] leading-8 text-[var(--muted)]" data-reveal>
-          Cursando una carrera Full Stack, con proyectos reales entregados y buscando crecer en un equipo donde pueda aportar y aprender de verdad.
+          Cursando una carrera Full Stack, construyendo para clientes reales y buscando el equipo donde pueda aportar y crecer de verdad.
         </p>
 
         <div class="flex flex-wrap items-center justify-center gap-3" data-reveal>
@@ -152,7 +152,7 @@ const heroWordLines = computed(() =>
           <div class="space-y-4" data-reveal>
             <p class="font-['DM_Sans'] text-[12px] font-bold uppercase tracking-[.24em] text-[var(--accent)]">PRIMERA ETAPA / PERFIL</p>
             <p class="max-w-[236px] leading-7 text-[var(--muted)]">
-              Proyecto a proyecto, estudio y práctica constante. Ya hay trabajo real entregado y sigo sumando.
+              Proyecto a proyecto, estudio y práctica constante. Compromiso real en cada cosa que toco.
             </p>
           </div>
           <div class="space-y-4" data-reveal>
@@ -162,7 +162,7 @@ const heroWordLines = computed(() =>
             <p class="max-w-[620px] text-lg leading-8 text-[var(--muted)]">
               Me involucro de verdad, aprendo rápido y me comprometo con cada entrega desde el primer día.
             </p>
-            <p class="text-base font-medium text-[var(--accent)]">Proyectos entregados, compromiso real y mejora constante.</p>
+            <p class="text-base font-medium text-[var(--accent)]">Compromiso real, criterio y mejora constante.</p>
           </div>
         </div>
         <div class="mt-8 grid gap-6 md:grid-cols-3">
