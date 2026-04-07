@@ -214,6 +214,17 @@ onBeforeUnmount(() => {
         style="background: rgba(243,239,231,0.97); backdrop-filter: blur(24px);"
         @click.self="closeMobileMenu"
       >
+        <button
+          type="button"
+          aria-label="Cerrar menú"
+          class="absolute right-5 top-6 flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(207,199,187,.72)] bg-[rgba(243,239,231,.9)] text-[var(--ink)]"
+          @click="closeMobileMenu"
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+
         <nav class="flex flex-col items-start gap-1">
           <button
             v-for="item in navItems"
