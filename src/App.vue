@@ -214,20 +214,20 @@ onBeforeUnmount(() => {
         style="background: rgba(243,239,231,0.97); backdrop-filter: blur(24px);"
         @click.self="closeMobileMenu"
       >
-        <nav class="flex flex-col items-center gap-1">
+        <nav class="flex flex-col items-start gap-1">
           <button
             v-for="item in navItems"
             :key="`overlay-${item.name}`"
             type="button"
             :aria-current="activeRouteName === item.name ? 'page' : undefined"
-            class="w-full rounded-[20px] px-6 py-5 text-center font-['Space_Grotesk'] text-[2.2rem] font-bold tracking-[-.04em] transition-all duration-200"
+            class="w-full rounded-[20px] px-2 py-5 text-left font-['Space_Grotesk'] text-[2.2rem] font-bold tracking-[-.04em] transition-all duration-200"
             :class="activeRouteName === item.name ? 'text-[var(--accent)]' : 'text-[var(--ink)] hover:text-[var(--accent)]'"
             @click="navigateToRoute(item.name)"
           >
             {{ item.label }}
           </button>
         </nav>
-        <div class="mt-10 border-t border-[rgba(207,199,187,.72)] pt-8 text-center">
+        <div class="mt-10 border-t border-[rgba(207,199,187,.72)] pt-8">
           <p class="font-['DM_Sans'] text-[11px] font-bold uppercase tracking-[.22em] text-[var(--muted)]">querque.dev · Buenos Aires</p>
         </div>
       </div>
