@@ -16,7 +16,7 @@ export const milestones = [
     num: '01',
     title: 'Aposté todo al desarrollo web',
     body: 'Empecé a estudiar de forma intensiva, sin atajos. Impulsado por el interés real de construir cosas con código y entender cómo funciona todo de verdad.',
-    tag: '📚 Inicio de formación intensiva',
+    tag: 'Inicio de formación intensiva',
   },
   {
     id: 'davinci',
@@ -24,7 +24,7 @@ export const milestones = [
     num: '02',
     title: 'Carrera Full Stack de 2 años',
     body: 'Formación acelerada cubriendo frontend, backend, bases de datos y herramientas reales. Vue, React, Node, Laravel, MySQL, MongoDB y más.',
-    tag: '🎓 Carrera en curso · Full Stack',
+    tag: 'Carrera en curso · Full Stack',
   },
   {
     id: 'beca',
@@ -32,7 +32,7 @@ export const milestones = [
     num: '03',
     title: 'Beca por promedio académico',
     body: 'Obtuve una beca por rendimiento en Da Vinci. Un hito que confirma que el esfuerzo real da resultados y me impulsó a seguir con más exigencia todavía.',
-    tag: '⭐ Beca · promedio destacado',
+    tag: 'Beca · promedio destacado',
   },
   {
     id: 'stack',
@@ -40,7 +40,7 @@ export const milestones = [
     num: '04',
     title: 'Proyectos de práctica en cada tecnología',
     body: 'No para mostrar — para entender de verdad cómo funciona cada parte. WordPress, Vue, React, Node, Laravel y bases de datos relacionales y no relacionales.',
-    tag: '⚡ Stack completo · práctica constante',
+    tag: 'Stack completo · práctica constante',
   },
   {
     id: 'ahora',
