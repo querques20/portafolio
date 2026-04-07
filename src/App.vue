@@ -14,6 +14,10 @@ const activeRouteName = computed(() => route.name ?? 'home')
 const isDesktopNavVisible = ref(false)
 const hasHomeIntroCompleted = ref(false)
 const isRouteTransitioning = ref(false)
+const mobileMenuOpen = ref(false)
+
+const toggleMobileMenu = () => { mobileMenuOpen.value = !mobileMenuOpen.value }
+const closeMobileMenu  = () => { mobileMenuOpen.value = false }
 
 const routeOrderByName = Object.fromEntries(navItems.map((item) => [item.name, item.order]))
 
@@ -95,6 +99,7 @@ const animateRouteOut = async (direction) => {
 }
 
 const navigateToRoute = async (name) => {
+  closeMobileMenu()
   if (isRouteTransitioning.value) return
 
   if (route.name === name) {
@@ -189,38 +194,47 @@ onBeforeUnmount(() => {
               </span>
             </div>
 
+            <!-- hamburger button (mobile only) -->
             <button
               type="button"
-              class="rounded-full border border-[rgba(207,199,187,.72)] bg-[rgba(248,246,241,.96)] px-4 py-2 font-['DM_Sans'] text-[11px] font-bold uppercase tracking-[.18em] text-[var(--ink)] md:hidden"
-              @click="navigateToRoute('contact')"
+              :aria-label="mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'"
+              class="hamburger-btn pointer-events-auto md:hidden"
+              :class="{ 'is-open': mobileMenuOpen }"
+              @click="toggleMobileMenu"
             >
-              Contacto
+              <span /><span /><span />
             </button>
           </nav>
         </div>
-
-        <div class="pointer-events-auto md:hidden">
-          <div
-            class="flex flex-wrap items-center gap-2 rounded-[28px] border-[rgba(207,199,187,.72)] bg-white px-2 py-2 backdrop-blur-xl shadow-[0_16px_34px_rgba(30,30,27,.07)]"
-          >
-            <button
-              v-for="item in navItems"
-              :key="`${item.name}-mobile`"
-              type="button"
-              :aria-current="activeRouteName === item.name ? 'page' : undefined"
-              class="shrink-0 rounded-full px-4 py-2 font-['DM_Sans'] text-[11px] font-bold uppercase tracking-[.18em] transition-all duration-300"
-              :class="activeRouteName === item.name ? 'bg-[var(--ink)] text-[var(--sand)]' : 'bg-[rgba(248,246,241,.96)] text-[var(--muted)]'"
-              @click="navigateToRoute(item.name)"
-            >
-              {{ item.label }}
-            </button>
-            <span class="shrink-0 rounded-full bg-[rgba(124,140,255,.12)] px-4 py-2 font-['DM_Sans'] text-[10px] font-bold uppercase tracking-[.22em] text-[var(--accent)]">
-              ES / EN
-            </span>
-          </div>
-        </div>
       </div>
     </header>
+
+    <!-- mobile menu overlay -->
+    <Transition name="mobile-menu">
+      <div
+        v-if="mobileMenuOpen"
+        class="fixed inset-0 z-40 flex flex-col justify-center px-6 md:hidden"
+        style="background: rgba(243,239,231,0.97); backdrop-filter: blur(24px);"
+        @click.self="closeMobileMenu"
+      >
+        <nav class="flex flex-col gap-2">
+          <button
+            v-for="item in navItems"
+            :key="`overlay-${item.name}`"
+            type="button"
+            :aria-current="activeRouteName === item.name ? 'page' : undefined"
+            class="w-full rounded-[20px] px-6 py-5 text-left font-['Space_Grotesk'] text-[2rem] font-bold tracking-[-.04em] transition-all duration-200"
+            :class="activeRouteName === item.name ? 'text-[var(--accent)]' : 'text-[var(--ink)] hover:text-[var(--accent)]'"
+            @click="navigateToRoute(item.name)"
+          >
+            {{ item.label }}
+          </button>
+        </nav>
+        <div class="mt-10 border-t border-[rgba(207,199,187,.72)] pt-8">
+          <p class="font-['DM_Sans'] text-[11px] font-bold uppercase tracking-[.22em] text-[var(--muted)]">querque.dev · Buenos Aires</p>
+        </div>
+      </div>
+    </Transition>
 
     <main class="pt-28 md:pt-24">
       <div ref="routeViewport" class="route-stage route-viewport">
@@ -311,5 +325,43 @@ footer {
     pointer-events: none;
   }
 }
+
+/* ── hamburger ── */
+.hamburger-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  border-radius: 50%;
+  border: 1px solid rgba(207, 199, 187, 0.72);
+  background: rgba(248, 246, 241, 0.96);
+  cursor: pointer;
+}
+
+.hamburger-btn span {
+  display: block;
+  height: 1.5px;
+  border-radius: 2px;
+  background: #1e1e1b;
+  transform-origin: center;
+  transition: transform 0.28s cubic-bezier(.22,1,.36,1), opacity 0.2s ease, width 0.28s ease;
+}
+
+.hamburger-btn span:nth-child(1) { width: 100%; }
+.hamburger-btn span:nth-child(2) { width: 70%; }
+.hamburger-btn span:nth-child(3) { width: 100%; }
+
+.hamburger-btn.is-open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); width: 100%; }
+.hamburger-btn.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger-btn.is-open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); width: 100%; }
+
+/* ── mobile menu transition ── */
+.mobile-menu-enter-active { transition: opacity 0.28s ease, transform 0.32s cubic-bezier(.22,1,.36,1); }
+.mobile-menu-leave-active { transition: opacity 0.22s ease, transform 0.24s ease; }
+.mobile-menu-enter-from  { opacity: 0; transform: translateY(-12px); }
+.mobile-menu-leave-to    { opacity: 0; transform: translateY(-8px); }
 
 </style>
