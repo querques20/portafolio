@@ -80,14 +80,21 @@ const { pageRoot } = usePageIntro()
           <h3 class="max-w-[520px] font-['Space_Grotesk'] text-[2.2rem] font-medium leading-[1.04] tracking-[-.04em]" data-reveal>
             Herramientas con las que estoy construyendo mi perfil full stack.
           </h3>
-          <div class="mt-8 flex flex-wrap gap-4">
+          <div class="mt-8 flex flex-wrap gap-3">
             <span
               v-for="tool in tools"
-              :key="tool"
-              class="rounded-full border border-[rgba(207,199,187,.95)] bg-[rgba(243,239,231,.82)] px-4 py-3 font-['DM_Sans'] text-[13px] font-bold tracking-[.04em] shadow-[0_10px_22px_rgba(30,30,27,.05)]"
+              :key="tool.name"
+              class="inline-flex items-center gap-2 rounded-full border px-4 py-3 font-['DM_Sans'] text-[13px] font-bold tracking-[.04em] shadow-[0_10px_22px_rgba(30,30,27,.05)]"
+              :class="tool.studying
+                ? 'border-[rgba(124,140,255,.25)] bg-[rgba(124,140,255,.06)]'
+                : 'border-[rgba(207,199,187,.95)] bg-[rgba(243,239,231,.82)]'"
               data-card
             >
-              {{ tool }}
+              {{ tool.name }}
+              <span
+                v-if="tool.studying"
+                class="rounded-full bg-[rgba(124,140,255,.15)] px-2 py-0.5 font-['DM_Sans'] text-[9px] font-bold uppercase tracking-[.14em] text-[var(--accent)]"
+              >Estudiando</span>
             </span>
           </div>
         </section>

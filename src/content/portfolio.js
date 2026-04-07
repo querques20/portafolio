@@ -67,8 +67,20 @@ export const aboutCards = [
 ]
 
 export const tools = [
-  'WordPress', 'Vue', 'React', 'Node.js', 'JavaScript',
-  'CSS', 'HTML', 'Laravel', 'MongoDB', 'Express', 'PHP', 'MySQL', 'Linux', 'Apache',
+  { name: 'WordPress', studying: false },
+  { name: 'Vue',       studying: false },
+  { name: 'HTML',      studying: false },
+  { name: 'CSS',       studying: false },
+  { name: 'JavaScript',studying: false },
+  { name: 'PHP',       studying: false },
+  { name: 'MySQL',     studying: false },
+  { name: 'React',     studying: true  },
+  { name: 'Node.js',   studying: true  },
+  { name: 'Laravel',   studying: true  },
+  { name: 'MongoDB',   studying: true  },
+  { name: 'Express',   studying: true  },
+  { name: 'Linux',     studying: true  },
+  { name: 'Apache',    studying: true  },
 ]
 
 export const steps = [
