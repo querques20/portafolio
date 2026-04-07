@@ -96,7 +96,7 @@ const openLink = (link) => {
           </div>
           <label class="field-card mt-4 block">
             <span class="field-label text-[var(--earth)]">TIPO DE PROYECTO</span>
-            <input v-model="form.project" type="text" name="project" placeholder="Branding, portfolio, producto o web" class="field-input" />
+            <input v-model="form.project" type="text" name="project" placeholder="E-commerce, landing page, branding web..." class="field-input" />
           </label>
           <label class="field-card mt-4 block">
             <span class="field-label text-[var(--accent)]">MENSAJE</span>
