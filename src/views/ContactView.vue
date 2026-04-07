@@ -105,7 +105,7 @@ const openLink = (link) => {
           <div class="mt-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <p v-if="status === 'ok'" class="font-medium text-green-600">Mensaje enviado. Te respondo pronto.</p>
             <p v-else-if="status === 'error'" class="font-medium text-red-500">Algo salió mal. Escribime directo a {{ email }}</p>
-            <p v-else class="leading-7 text-[var(--muted)]">Suelo responder con contexto, tiempos y próximos pasos. ES / EN.</p>
+            <p v-else class="leading-7 text-[var(--muted)]">Suelo responder con contexto, tiempos y próximos pasos.</p>
             <button
               type="submit"
               :disabled="status === 'sending' || status === 'ok'"
@@ -128,7 +128,6 @@ const openLink = (link) => {
           </a>
           <p class="mt-5 whitespace-pre-line text-[1.05rem] leading-8 text-[var(--muted)]">
             Buenos Aires / Remoto
-            ES / EN
             Proyectos y colaboraciones
           </p>
         </article>

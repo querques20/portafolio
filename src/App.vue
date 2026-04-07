@@ -189,9 +189,6 @@ onBeforeUnmount(() => {
               >
                 {{ item.label }}
               </button>
-              <span class="rounded-full bg-[rgba(124,140,255,.12)] px-4 py-2 font-['DM_Sans'] text-[11px] font-bold uppercase tracking-[.22em] text-[var(--accent)]">
-                ES / EN
-              </span>
             </div>
 
             <!-- hamburger button (mobile only) -->
