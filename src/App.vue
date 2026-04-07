@@ -349,6 +349,10 @@ footer {
   cursor: pointer;
 }
 
+@media (min-width: 768px) {
+  .hamburger-btn { display: none; }
+}
+
 .hamburger-btn span {
   display: block;
   height: 1.5px;

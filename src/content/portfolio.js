@@ -79,8 +79,6 @@ export const tools = [
   { name: 'Laravel',   studying: true  },
   { name: 'MongoDB',   studying: true  },
   { name: 'Express',   studying: true  },
-  { name: 'Linux',     studying: true  },
-  { name: 'Apache',    studying: true  },
 ]
 
 export const steps = [
