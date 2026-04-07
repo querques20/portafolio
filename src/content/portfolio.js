@@ -56,7 +56,7 @@ export const milestones = [
 export const pillars = [
   ['COMPROMISO', 'Me involucro de verdad, cuido cada detalle y trabajo con seriedad.', 'var(--accent)'],
   ['APRENDIZAJE', 'Aprendo rápido y convierto cada proyecto en una oportunidad de mejorar.',              'var(--earth)'],
-  ['RESPUESTA',   'Trabajo con seriedad, comunicación clara y ganas reales de aportar desde el día uno.', 'var(--accent)'],
+  ['RESPUESTA',   'Comunicación clara, disponibilidad real y ganas de aportar desde el día uno.', 'var(--accent)'],
 ]
 
 export const aboutCards = [
