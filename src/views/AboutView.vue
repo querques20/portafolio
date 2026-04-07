@@ -103,7 +103,7 @@ const { pageRoot } = usePageIntro()
       <div class="grid gap-10 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-24">
         <aside class="glass-card rounded-[24px] p-6 md:p-7" data-card>
           <p class="font-['DM_Sans'] text-[12px] font-bold uppercase tracking-[.24em] text-[var(--accent)]">MÉTODO / PROCESO</p>
-          <p class="mt-6 max-w-[228px] leading-8 text-[var(--muted)]">Cómo encaro cada proyecto, con seriedad y criterio desde el primero.</p>
+          <p class="mt-6 max-w-[228px] leading-8 text-[var(--muted)]">Mi forma de trabajar en cada proyecto.</p>
         </aside>
 
         <section class="glass-panel rounded-[30px] p-8 md:p-10" data-card>
