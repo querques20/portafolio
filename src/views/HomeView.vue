@@ -24,7 +24,7 @@ const heroWordLines = computed(() =>
       <div class="flex flex-col items-center gap-8 py-4 text-center md:py-8">
         <div class="space-y-1">
           <h1
-            class="hero-title mx-auto max-w-[980px] font-['Space_Grotesk'] text-[clamp(3.1rem,7vw,4.8rem)] leading-[.94] tracking-[-.06em]"
+            class="hero-title mx-auto w-full max-w-[980px] font-['Space_Grotesk'] text-[clamp(2rem,7vw,4.8rem)] leading-[.94] tracking-[-.06em]"
           >
             <span
               v-for="(lineWords, index) in heroWordLines"
@@ -150,7 +150,7 @@ const heroWordLines = computed(() =>
       <section class="glass-panel rounded-[32px] p-6 md:p-9" data-card>
         <div class="grid gap-8 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-24">
           <div class="space-y-4" data-reveal>
-            <p class="font-['DM_Sans'] text-[12px] font-bold uppercase tracking-[.24em] text-[var(--accent)]">PRIMERA ETAPA / PERFIL</p>
+            <p class="font-['DM_Sans'] text-[12px] font-bold uppercase tracking-[.24em] text-[var(--accent)]">PERFIL / ENFOQUE</p>
             <p class="max-w-[236px] leading-7 text-[var(--muted)]">
               Proyecto a proyecto, estudio y práctica constante.
             </p>
@@ -178,7 +178,7 @@ const heroWordLines = computed(() =>
 
 <style scoped>
 .hero-title {
-  width: fit-content;
+  width: 100%;
 }
 
 .hero-title-line-wrap {
