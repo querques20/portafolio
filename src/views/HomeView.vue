@@ -49,7 +49,7 @@ const heroWordLines = computed(() =>
         </div>
 
         <p class="max-w-[620px] text-[1.15rem] leading-8 text-[var(--muted)]" data-reveal>
-          Cursando una carrera Full Stack, construyendo para clientes reales y buscando el equipo donde pueda aportar y crecer de verdad.
+          Desarrollador full stack con foco en frontend. Construyo sitios para clientes reales y busco el equipo donde pueda aportar y crecer de verdad.
         </p>
 
         <div class="flex flex-wrap items-center justify-center gap-3" data-reveal>

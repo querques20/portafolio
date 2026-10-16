@@ -51,7 +51,7 @@ const openLink = (link) => {
             <span class="page-title-wrap"><span class="page-title-line">Contacto</span></span>
           </h1>
           <div class="h-[3px] w-[72px] rounded-full bg-[var(--earth)]"></div>
-          <p class="max-w-[240px] text-base font-medium leading-7 text-[var(--muted)]">Disponible para nuevos proyectos, colaboraciones y trabajos web donde pueda aportar de verdad.</p>
+          <p class="max-w-[240px] text-base font-medium leading-7 text-[var(--muted)]">Disponible para sumarme a un equipo de desarrollo y para proyectos web donde pueda aportar de verdad.</p>
         </div>
 
         <div class="space-y-5" data-reveal>

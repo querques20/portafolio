@@ -7,7 +7,7 @@ export const navItems = [
 ]
 
 export const heroLines = ['Diseño y desarrollo', 'digital', 'para sitios y marcas']
-export const heroTags  = ['Full Stack', 'Vue / React / Node', 'WordPress / Laravel']
+export const heroTags  = ['Full Stack', 'React / Vue / Next.js', 'Node / PHP / SQL']
 
 export const milestones = [
   {
@@ -22,9 +22,9 @@ export const milestones = [
     id: 'davinci',
     year: '2024 · Escuela Da Vinci',
     num: '02',
-    title: 'Carrera Full Stack de 2 años',
+    title: 'Carrera de Diseño y Programación Web',
     body: 'Formación acelerada cubriendo frontend, backend, bases de datos y herramientas reales. Vue, React, Node, Laravel, MySQL, MongoDB y más.',
-    tag: 'Carrera en curso · Full Stack',
+    tag: 'Cursada completa · tesis en curso',
   },
   {
     id: 'beca',
@@ -43,11 +43,19 @@ export const milestones = [
     tag: 'Stack completo · práctica constante',
   },
   {
+    id: 'empoderamiento-docente',
+    year: '2026 · Trabajo real',
+    num: '05',
+    title: 'Freelance en Empoderamiento Docente',
+    body: 'Me sumé al equipo que hace el sitio de una organización educativa que trabaja en cinco países. Me ocupo sobre todo del frontend: las páginas, las animaciones y las correcciones del cliente. Ya está en producción.',
+    tag: 'Freelance · en curso',
+  },
+  {
     id: 'ahora',
     year: '2026 · Ahora',
     num: '→',
     title: 'Construyendo y buscando el equipo correcto',
-    body: 'Diseño y desarrollo sitios web. Busco consolidarme en un equipo donde pueda aportar, crecer y responder bien desde el primer día.',
+    body: 'Mientras termino la tesis, sigo haciendo sitios para clientes reales y busco mi primer puesto en un equipo de desarrollo, donde pueda aportar desde el primer día.',
     tag: null,
     isNow: true,
   },
@@ -60,25 +68,33 @@ export const pillars = [
 ]
 
 export const aboutCards = [
-  ['MOMENTO',   'Trabajo en PedidosYa mientras desarrollo proyectos web reales y busco consolidarme como desarrollador.', 'var(--accent)'],
-  ['FORMACIÓN', 'Carrera intensiva Full Stack de 2 años en Escuela Da Vinci.',                                'var(--earth)'],
-  ['STACK',     'WordPress, Vue, React, Node.js, Laravel y base real en MERN y LAMP.',                       'var(--accent)'],
-  ['ACTITUD',   'Compromiso real, ganas de aprender y dedicación total en cada proyecto.',                    'var(--earth)'],
+  ['MOMENTO',   'Trabajo como freelance en el sitio de Empoderamiento Docente y busco mi primer puesto en un equipo.', 'var(--accent)'],
+  ['FORMACIÓN', 'Diseño y Programación Web en Escuela Da Vinci. Cursada completa, con beca por promedio.',            'var(--earth)'],
+  ['STACK',     'React, Vue, Next.js y TypeScript en el frontend; Node.js, PHP y bases SQL y NoSQL detrás.',          'var(--accent)'],
+  ['ACTITUD',   'Compromiso real, ganas de aprender y dedicación total en cada proyecto.',                            'var(--earth)'],
 ]
 
 export const tools = [
-  { name: 'WordPress', studying: false },
-  { name: 'Vue',       studying: false },
-  { name: 'HTML',      studying: false },
-  { name: 'CSS',       studying: false },
-  { name: 'JavaScript',studying: false },
-  { name: 'PHP',       studying: false },
-  { name: 'MySQL',     studying: false },
-  { name: 'React',     studying: true  },
-  { name: 'Node.js',   studying: true  },
-  { name: 'Laravel',   studying: true  },
-  { name: 'MongoDB',   studying: true  },
-  { name: 'Express',   studying: true  },
+  { name: 'React',        studying: false },
+  { name: 'Vue',          studying: false },
+  { name: 'Next.js',      studying: false },
+  { name: 'TypeScript',   studying: false },
+  { name: 'JavaScript',   studying: false },
+  { name: 'HTML',         studying: false },
+  { name: 'CSS',          studying: false },
+  { name: 'Tailwind CSS', studying: false },
+  { name: 'GSAP',         studying: false },
+  { name: 'Node.js',      studying: false },
+  { name: 'Express',      studying: false },
+  { name: 'PHP',          studying: false },
+  { name: 'Laravel',      studying: false },
+  { name: 'MySQL',        studying: false },
+  { name: 'PostgreSQL',   studying: false },
+  { name: 'MongoDB',      studying: false },
+  { name: 'Supabase',     studying: false },
+  { name: 'Docker',       studying: false },
+  { name: 'Git',          studying: false },
+  { name: 'WordPress',    studying: false },
 ]
 
 export const steps = [
@@ -88,38 +104,39 @@ export const steps = [
 ]
 
 export const contactLinks = [
-  { title: 'GitHub',   body: 'Código, práctica constante y proceso de aprendizaje',    href: 'https://github.com/querques20', badge: 'Ver perfil', type: 'external' },
+  { title: 'GitHub',   body: 'El código de mis proyectos',                              href: 'https://github.com/querques20', badge: 'Ver perfil', type: 'external' },
+  { title: 'LinkedIn', body: 'Mi perfil profesional y experiencia',                     href: 'https://www.linkedin.com/in/facundo-alvarez-dev', badge: 'Ver perfil', type: 'external' },
   { title: 'Inicio',   body: 'Volver al comienzo del sitio',                          routeName: 'home',                    badge: 'Abrir',      type: 'route'    },
   { title: 'Respuesta',body: 'Contacto directo por mail',                              href: `mailto:${email}`,              badge: 'Email',      type: 'mailto'   },
 ]
 
 export const projects = [
   {
+    id: 'empoderamiento-docente',
+    title: 'Empoderamiento Docente',
+    category: 'Educación',
+    year: '2026',
+    description: 'Sitio institucional de una organización educativa que trabaja en cinco países. Lo hicimos en equipo y me ocupé sobre todo del frontend: las páginas, las animaciones y las correcciones del cliente.',
+    tags: ['Next.js', 'TypeScript', 'GSAP'],
+    url: 'https://empoderamientodocente.org',
+  },
+  {
     id: 'bystellabotella',
     title: 'By Stella Botella',
     category: 'E-commerce',
     year: '2025',
-    description: 'Tienda online de patrones de crochet y tutoriales. Catálogo de productos descargables, newsletter con patrón gratis, diseño cálido y totalmente responsive.',
+    description: 'Tienda online de patrones de crochet y tutoriales: catálogo de descargables, newsletter con patrón gratis y diseño totalmente responsive. Hecha en equipo; me ocupé del frontend.',
     tags: ['Astro', 'Vue', 'E-commerce', 'CSS'],
     url: 'https://bystellabotella.com',
-  },
-  {
-    id: 'latidoceramico',
-    title: 'Latido Cerámico',
-    category: 'E-commerce',
-    year: '2025',
-    description: 'Sitio completo para un emprendimiento de cerámica artesanal. Tienda con carrito, panel de administración, sistema de login, checkout y gestión de órdenes.',
-    tags: ['PHP', 'MySQL', 'Docker', 'Tailwind'],
-    url: 'https://web-production-275ee.up.railway.app',
   },
   {
     id: 'la-rucula',
     title: 'La Rúcula Gastrobar',
     category: 'Gastronomía',
     year: '2025',
-    description: 'Sitio web para un gastrobar de cocina costera refinada. Carta interactiva, identidad visual cálida y experiencia de navegación fluida.',
+    description: 'Sitio para un gastrobar de cocina mediterránea en Cádiz, España: carta interactiva, identidad visual cálida y animaciones con GSAP. Hecho en equipo; me ocupé del frontend.',
     tags: ['Vue', 'GSAP'],
-    url: 'https://laruculagastrobar.es/',
+    url: 'https://laruculagastrobar.es',
     image: '/portfolio/la-rucula.png',
   },
 ]
@@ -130,6 +147,6 @@ export const footerColumns = [
     { text: 'Sobre mí', route: 'about'   },
     { text: 'Contacto', route: 'contact' },
   ]},
-  { label: 'ENFOQUE',  items: ['Full Stack', 'WordPress', 'Vue / React', 'MERN + LAMP'] },
-  { label: 'CONTACTO', items: [email, 'Buenos Aires, AR', 'Disponible para nuevos proyectos'] },
+  { label: 'ENFOQUE',  items: ['Full Stack', 'Frontend', 'React / Vue / Next.js', 'Node / PHP'] },
+  { label: 'CONTACTO', items: [email, 'Buenos Aires, AR', 'Disponible para trabajar'] },
 ]

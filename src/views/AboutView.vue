@@ -51,13 +51,13 @@ const { pageRoot } = usePageIntro()
           </h2>
           <div class="max-w-[760px] space-y-6 text-[1.08rem] leading-8 text-[var(--muted)] md:text-[1.14rem] md:leading-9">
             <p>
-              Soy Facundo Luciano Alvarez, aunque en internet me muevo como querque.dev. Hace casi dos años empecé a estudiar desarrollo web de manera intensiva, impulsado por mi interés por las computadoras y por la posibilidad de construir cosas reales con ellas.
+              Soy Facundo Luciano Alvarez, aunque en internet me muevo como querque.dev. Hace más de dos años empecé a estudiar desarrollo web de manera intensiva, impulsado por mi interés por las computadoras y por la posibilidad de construir cosas reales con ellas.
             </p>
             <p>
-              Hoy estoy cursando una carrera acelerada de 2 años de Desarrollador Full Stack en Escuela Da Vinci. En ese recorrido también obtuve una beca por promedio, algo que me dio todavía más impulso para seguir con la misma exigencia.
+              Terminé de cursar Diseño y Programación Web en Escuela Da Vinci, una carrera de dos años, y me queda la tesis. En ese recorrido obtuve una beca por promedio, algo que me dio todavía más impulso para seguir con la misma exigencia.
             </p>
             <p>
-              Actualmente trabajo en PedidosYa para sostener este camino mientras diseño y desarrollo sitios web para clientes de distintos rubros. Busco consolidar mi carrera con el primer rol formal en una empresa donde pueda aportar y crecer de verdad.
+              Hoy trabajo como freelance en el sitio de Empoderamiento Docente, una organización educativa que está en cinco países, y también hice el frontend de sitios para otros clientes. Busco consolidar mi carrera con el primer puesto formal en una empresa donde pueda aportar y crecer de verdad.
             </p>
           </div>
         </div>
@@ -73,7 +73,7 @@ const { pageRoot } = usePageIntro()
       <div class="grid gap-10 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-24">
         <aside class="glass-card rounded-[24px] p-6 md:p-7" data-card>
           <p class="font-['DM_Sans'] text-[12px] font-bold uppercase tracking-[.24em] text-[var(--accent)]">STACK / HERRAMIENTAS</p>
-          <p class="mt-6 max-w-[240px] leading-8 text-[var(--muted)]">Tecnologías y stacks con los que estudio, practico y construyo proyectos web completos.</p>
+          <p class="mt-6 max-w-[240px] leading-8 text-[var(--muted)]">Tecnologías con las que trabajo y construyo proyectos web completos.</p>
         </aside>
 
         <section class="glass-panel rounded-[30px] p-8 md:p-10" data-card>
